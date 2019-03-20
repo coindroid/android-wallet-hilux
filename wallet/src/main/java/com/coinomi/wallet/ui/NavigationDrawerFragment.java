@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -17,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.coinomi.wallet.R;
@@ -102,9 +100,14 @@ public class NavigationDrawerFragment extends BaseFragment {
         mDrawerListView = view.findViewById(R.id.coins_list);
         mDrawerListView.setOnItemClickListener((parent, view1, position, id) -> selectItem(position));
 
-        mDrawerListViewSecond = view.findViewById(R.id.coins_list_second);
+        mDrawerListViewSecond = view.findViewById(R.id.useful);
         mDrawerListViewSecond.setOnItemClickListener((parent, view1, position, id) -> selectItemSecond(position));
-
+        view.findViewById(R.id.add_coins).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCoins();
+            }
+        });
         return view;
     }
 
@@ -249,7 +252,12 @@ public class NavigationDrawerFragment extends BaseFragment {
 
         }
     }
-
+    private void addCoins() {
+        closeDrawer();
+        if (listener != null) {
+            listener.onAddCoinsSelected();
+        }
+    }
     public void setSelectedItem(int position, boolean closeDrawer) {
         mCurrentSelectedPosition = position;
         if (mDrawerListView != null) {
@@ -341,5 +349,6 @@ public class NavigationDrawerFragment extends BaseFragment {
         void onAccountSelected(String accountId);
         void onOverviewSelected();
         void onLinkSelected(String link);
+        void onAddCoinsSelected();
     }
 }

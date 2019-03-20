@@ -70,7 +70,7 @@ final public class WalletActivity extends BaseWalletActivity implements
     private static final int OPEN_ACCOUNT = 3;
     private static final int OPEN_OVERVIEW = 4;
     private static final int PROCESS_URI = 5;
-
+    private static final int ADD_COIN = 1;
     // Fragment tags
     private static final String ACCOUNT_TAG = "account_tag";
     private static final String OVERVIEW_TAG = "overview_tag";
@@ -395,7 +395,10 @@ final public class WalletActivity extends BaseWalletActivity implements
         return account != null && accountFragment != null &&
                 accountFragment.isVisible() && account.equals(accountFragment.getAccount());
     }
-
+    @Override
+    public void onAddCoinsSelected() {
+        startActivityForResult(new Intent(WalletActivity.this, AddCoinsActivity.class), ADD_COIN);
+    }
     private void connectCoinService(String accountId) {
         if (connectCoinIntent == null) {
             connectCoinIntent = new Intent(CoinService.ACTION_CONNECT_COIN, null,
