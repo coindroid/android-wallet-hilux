@@ -9,12 +9,16 @@ import com.coinomi.core.coins.CoinID;
 import com.coinomi.core.coins.CoinType;
 import com.coinomi.core.network.CoinAddress;
 import com.coinomi.stratumj.ServerAddress;
+import com.coinomi.wallet.ui.NavDrawerItem;
 import com.google.common.collect.ImmutableList;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_LINK;
+import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_SECTION_TITLE;
 
 /**
  * @author John L. Jegutanis
@@ -127,4 +131,13 @@ public class Constants {
 
 
     );
+
+    public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
+        navDrawerItemsSecond.clear();
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Useful");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+    }
 }

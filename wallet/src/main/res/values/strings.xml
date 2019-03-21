@@ -70,7 +70,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_services">Services</string>
     <string name="navigation_drawer_wallet">Wallet</string>
-    <string name="navigation_drawer_useful" translatable="false">Useful</string>
     <!-- SendOutput widget -->
     <string name="fee">Transaction fee</string>
     <string name="send">Send</string>

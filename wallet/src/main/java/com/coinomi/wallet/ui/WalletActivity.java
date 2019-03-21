@@ -168,7 +168,7 @@ final public class WalletActivity extends BaseWalletActivity implements
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFM().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, drawerLayout, navDrawerItems, navDrawerItemsSecond);
         createNavDrawerItems();
-        createNavDrawerItemsSecond();
+        Constants.createNavDrawerItemsSecond(navDrawerItemsSecond);
 
         setDrawerLocked(DRAWER_LOCKED);
     }
@@ -231,19 +231,6 @@ final public class WalletActivity extends BaseWalletActivity implements
         }
     }
 
-    private void navDrawerSelectLink(boolean closeDrawer) {
-        if (mNavigationDrawerFragment != null) {
-            int position = 0;
-            for (NavDrawerItem item : navDrawerItemsSecond) {
-                if (item.itemType == ITEM_LINK) {
-                    mNavigationDrawerFragment.setSelectedItemSecond(position, closeDrawer);
-                    break;
-                }
-                position++;
-            }
-        }
-    }
-
     private void createNavDrawerItems() {
         navDrawerItems.clear();
         NavDrawerItem.addItem(navDrawerItems, ITEM_SECTION_TITLE, getString(R.string.navigation_drawer_wallet));
@@ -252,16 +239,6 @@ final public class WalletActivity extends BaseWalletActivity implements
             NavDrawerItem.addItem(navDrawerItems, ITEM_COIN, account.getDescriptionOrCoinName(),
                     Constants.COINS_ICONS.get(account.getCoinType()), account.getId());
         }
-    }
-
-    private void createNavDrawerItemsSecond() {
-        navDrawerItemsSecond.clear();
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, getString(R.string.navigation_drawer_useful));
-
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
     }
 
     @Override
@@ -318,8 +295,7 @@ final public class WalletActivity extends BaseWalletActivity implements
     @Override
     public void onLinkSelected(String link) {
         if (!isFinishing()) {
-            //isOverviewVisible = false;
-            navDrawerSelectLink(true);
+            //navDrawerSelectLink(true);
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
             startActivity(browserIntent);
         }
@@ -819,7 +795,7 @@ final public class WalletActivity extends BaseWalletActivity implements
     public void onAccountModified(WalletAccount account) {
         // Recreate items
         createNavDrawerItems();
-        createNavDrawerItemsSecond();
+        Constants.createNavDrawerItemsSecond(navDrawerItemsSecond);
         mNavigationDrawerFragment.setItems(navDrawerItems, navDrawerItemsSecond);
     }
 

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.coinomi.wallet.R;
 import com.coinomi.wallet.ui.widget.NavDrawerItemView;
+import com.coinomi.wallet.ui.widget.NavDrawerItemViewWithoutCheck;
 
 import java.util.List;
 
@@ -73,8 +74,10 @@ public class NavDrawerListAdapter extends BaseAdapter {
                     break;
                 case ITEM_COIN:
                 case ITEM_OVERVIEW:
-                case ITEM_LINK:
                     row = new NavDrawerItemView(context);
+                    break;
+                case ITEM_LINK:
+                    row = new NavDrawerItemViewWithoutCheck(context);
                     break;
                 default:
                     throw new RuntimeException("Unknown type: " + item.itemType);
@@ -91,8 +94,10 @@ public class NavDrawerListAdapter extends BaseAdapter {
                 break;
             case ITEM_COIN:
             case ITEM_OVERVIEW:
-            case ITEM_LINK:
                 ((NavDrawerItemView) row).setData(item.title, item.iconRes);
+                break;
+            case ITEM_LINK:
+                ((NavDrawerItemViewWithoutCheck) row).setData(item.title, item.iconRes);
                 break;
         }
 

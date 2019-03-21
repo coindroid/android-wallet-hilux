@@ -52,15 +52,15 @@ public class NavigationDrawerFragment extends BaseFragment {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
-    private ListView mDrawerListViewSecond;
+    private ListView mDrawerListViewUseful;
     private View mFragmentContainerView;
 
     private int mCurrentSelectedPosition = 0;
-    private int mCurrentSelectedPositionSecond = 0;
+    private int mCurrentSelectedPositionUseful = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
     private NavDrawerListAdapter listAdapter;
-    private NavDrawerListAdapter listAdapterSecond;
+    private NavDrawerListAdapter listAdapterUseful;
 
     public NavigationDrawerFragment() {
     }
@@ -81,7 +81,7 @@ public class NavigationDrawerFragment extends BaseFragment {
 
         // Select either the default item (0) or the last selected item.
         selectItem(mCurrentSelectedPosition);
-        selectItemSecond(mCurrentSelectedPositionSecond);
+        selectItemUseful(mCurrentSelectedPositionUseful);
     }
 
 
@@ -100,14 +100,8 @@ public class NavigationDrawerFragment extends BaseFragment {
         mDrawerListView = view.findViewById(R.id.coins_list);
         mDrawerListView.setOnItemClickListener((parent, view1, position, id) -> selectItem(position));
 
-        mDrawerListViewSecond = view.findViewById(R.id.useful);
-        mDrawerListViewSecond.setOnItemClickListener((parent, view1, position, id) -> selectItemSecond(position));
-        view.findViewById(R.id.add_coins).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addCoins();
-            }
-        });
+        mDrawerListViewUseful = view.findViewById(R.id.useful);
+        mDrawerListViewUseful.setOnItemClickListener((parent, view1, position, id) -> selectItemUseful(position));
         return view;
     }
 
@@ -128,7 +122,7 @@ public class NavigationDrawerFragment extends BaseFragment {
      * @param navDrawerItems The items contained in the drawer
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout,
-                      List<NavDrawerItem> navDrawerItems, List<NavDrawerItem> navDrawerItemsSecond) {
+                      List<NavDrawerItem> navDrawerItems, List<NavDrawerItem> navDrawerItemsUseful) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
 
@@ -193,17 +187,17 @@ public class NavigationDrawerFragment extends BaseFragment {
         mDrawerListView.setAdapter(listAdapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
-        listAdapterSecond = new NavDrawerListAdapter(getActivity(), navDrawerItemsSecond);
-        mDrawerListViewSecond.setAdapter(listAdapterSecond);
-        mDrawerListViewSecond.setItemChecked(mCurrentSelectedPositionSecond, true);
+        listAdapterUseful = new NavDrawerListAdapter(getActivity(), navDrawerItemsUseful);
+        mDrawerListViewUseful.setAdapter(listAdapterUseful);
+        mDrawerListViewUseful.setItemChecked(mCurrentSelectedPositionUseful, true);
     }
 
     public void setItems(List<NavDrawerItem> items, List<NavDrawerItem> itemsSecond) {
         if (listAdapter != null) {
             listAdapter.setItems(items);
         }
-        if (listAdapterSecond != null) {
-            listAdapterSecond.setItems(itemsSecond);
+        if (listAdapterUseful != null) {
+            listAdapterUseful.setItems(itemsSecond);
         }
     }
 
@@ -228,14 +222,14 @@ public class NavigationDrawerFragment extends BaseFragment {
         }
     }
 
-    private void selectItemSecond(int position) {
-        selectItemSecond(position, true, true);
+    private void selectItemUseful(int position) {
+        selectItemUseful(position, true, true);
     }
 
-    private void selectItemSecond(int position, boolean closeDrawer, boolean enableCallbacks) {
-        setSelectedItemSecond(position, closeDrawer);
-        if (enableCallbacks && listener != null && listAdapterSecond != null) {
-            NavDrawerItem item = listAdapterSecond.getItem(position);
+    private void selectItemUseful(int position, boolean closeDrawer, boolean enableCallbacks) {
+        //setSelectedItemUseful(position, closeDrawer);
+        if (enableCallbacks && listener != null && listAdapterUseful != null) {
+            NavDrawerItem item = listAdapterUseful.getItem(position);
 
             switch (item.itemType) {
                 case ITEM_COIN:
@@ -267,16 +261,16 @@ public class NavigationDrawerFragment extends BaseFragment {
         }
     }
 
-    public void setSelectedItemSecond(int position, boolean closeDrawer) {
-        mCurrentSelectedPositionSecond = position;
-
-        if (mDrawerListViewSecond != null) {
-            mDrawerListViewSecond.setItemChecked(position, true);
-        }
-        if (closeDrawer) {
-            closeDrawer();
-        }
-    }
+//    public void setSelectedItemUseful(int position, boolean closeDrawer) {
+//        mCurrentSelectedPositionUseful = position;
+//
+//        if (mDrawerListViewUseful != null) {
+//            mDrawerListViewUseful.setItemChecked(position, true);
+//        }
+//        if (closeDrawer) {
+//            closeDrawer();
+//        }
+//    }
 
     @Override
     public void onAttach(final Context context) {
