@@ -96,7 +96,7 @@ public class TransactionsListAdapter extends BaseAdapter {
         this.walletPocket = walletPocket;
 
         res = context.getResources();
-        colorSignificant = res.getColor(R.color.gray_87_text);
+        colorSignificant = res.getColor(R.color.second_text);
         colorLessSignificant = res.getColor(R.color.gray_54_sec_text_icons);
         colorInsignificant = res.getColor(R.color.gray_26_hint_text);
         colorError = res.getColor(R.color.fg_error);
@@ -239,10 +239,10 @@ public class TransactionsListAdapter extends BaseAdapter {
             rowDirectionFontIcon.setTextColor(colorLessSignificant);
             if (value.isNegative()) {
                 rowDirectionFontIcon.setBackgroundResource(R.drawable.transaction_row_circle_bg_send);
-                rowValue.setTextColor(res.getColor(R.color.send_color_fg));
+                rowValue.setTextColor(res.getColor(R.color.send_normal));
             } else {
                 rowDirectionFontIcon.setBackgroundResource(R.drawable.transaction_row_circle_bg_receive);
-                rowValue.setTextColor(res.getColor(R.color.primary_100));
+                rowValue.setTextColor(res.getColor(R.color.dark));
             }
         } else if (confidenceType == ConfidenceType.DEAD) {
             rowLabel.setTextColor(colorSignificant);

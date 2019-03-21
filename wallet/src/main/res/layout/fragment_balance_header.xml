@@ -64,12 +64,5 @@
             android:textSize="@dimen/history_empty" />
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/partners_data_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/partners_images_container" />
-    </RelativeLayout>
 
 </LinearLayout>

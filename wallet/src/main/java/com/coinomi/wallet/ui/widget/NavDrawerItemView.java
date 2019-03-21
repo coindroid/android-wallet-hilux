@@ -8,10 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.coinomi.core.wallet.WalletAccount;
-import com.coinomi.wallet.Constants;
 import com.coinomi.wallet.R;
-import com.coinomi.wallet.util.WalletUtils;
 
 /**
  * @author John L. Jegutanis
@@ -41,7 +38,7 @@ public class NavDrawerItemView extends LinearLayout implements Checkable {
         isChecked = checked;
 
         if (isChecked) {
-            view.setBackgroundResource(R.color.primary_100);
+            view.setBackgroundResource(R.color.dark);
         } else {
             view.setBackgroundResource(0);
         }

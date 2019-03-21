@@ -117,8 +117,8 @@ public class Constants {
         COINS_BLOCK_EXPLORERS.put(CoinID.HILUX_MAIN.getCoinType(), "http://explorer.hiluxcoin.com/tx/%s");
     }
 
-    public static final CoinType DEFAULT_COIN = BitcoinMain.get();
-    public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) BitcoinMain.get());
+    public static final CoinType DEFAULT_COIN = HiluxMain.get();
+    public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) HiluxMain.get());
 
     public static final List<CoinType> SUPPORTED_COINS = ImmutableList.of(
             HiluxMain.get(),

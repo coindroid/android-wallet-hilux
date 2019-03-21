@@ -4,7 +4,7 @@
     android:shape="oval">
 
     <solid
-        android:color="@color/send_color_bg"/>
+        android:color="@color/ligth"/>
 
     <size
         android:width="@dimen/transaction_row_direction_bg_size"

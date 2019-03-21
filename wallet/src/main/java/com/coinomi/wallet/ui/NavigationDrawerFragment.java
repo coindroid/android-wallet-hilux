@@ -207,7 +207,6 @@ public class NavigationDrawerFragment extends BaseFragment {
         }
     }
 
-
     private void selectItem(int position) {
         selectItem(position, true, true);
     }

@@ -2,10 +2,10 @@
 
     <style name="AppThemeNoTitleBar" parent="Theme.AppCompat.Light.NoActionBar">
 
-        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorPrimary">@color/app_bar</item>
 
         <!-- colorPrimaryDark is used for the status bar -->
-        <item name="colorPrimaryDark">@color/primary_900</item>
+        <item name="colorPrimaryDark">@color/status_bar</item>
 
         <!-- colorAccent is used as the default value for colorControlActivated,
              which is used to tint widgets -->
@@ -14,10 +14,10 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- colorPrimary is used for the default action bar background -->
-        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorPrimary">@color/app_bar</item>
 
         <!-- colorPrimaryDark is used for the status bar -->
-        <item name="colorPrimaryDark">@color/primary_900</item>
+        <item name="colorPrimaryDark">@color/status_bar</item>
 
         <!-- colorAccent is used as the default value for colorControlActivated,
              which is used to tint widgets -->
@@ -25,14 +25,13 @@
 
         <item name="android:windowContentOverlay">@null</item>
 
-        <item name="android:textColor">@color/gray_87_text</item>
-        <item name="android:textColorSecondary">@color/gray_87_text</item>
-        <item name="android:itemBackground">@color/primary_500</item>
+        <item name="android:textColor">@color/main_text</item>
+        <item name="android:textColorSecondary">@color/second_text</item>
+        <item name="android:itemBackground">@color/app_bar</item>
     </style>
 
     <style name="MyDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:background">@color/background_wallet</item>
-        <item name="android:textColor">@color/gray_87_text</item>
+        <item name="android:textColor">@color/second_text</item>
         <item name="android:typeface">monospace</item>
     </style>
 
@@ -44,7 +43,7 @@
     </style>
 
     <style name="BorderlessButtonLink" parent="BorderlessButton">
-        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textColor">@color/app_bar</item>
     </style>
 
     <!-- Font icons -->
@@ -74,7 +73,7 @@
     </style>
 
     <style name="SecondaryText" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/gray_54_sec_text_icons</item>
+        <item name="android:textColor">@color/main_text</item>
     </style>
 
     <style name="HintText" parent="@android:style/TextAppearance">

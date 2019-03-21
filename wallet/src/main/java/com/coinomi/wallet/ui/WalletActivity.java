@@ -490,7 +490,13 @@ final public class WalletActivity extends BaseWalletActivity implements
                             showScanFailedMessage(e);
                         }
                     }
-                }
+                }  else if (requestCode == ADD_COIN) {
+                    if (resultCode == Activity.RESULT_OK) {
+                        final String accountId = intent.getStringExtra(Constants.ARG_ACCOUNT_ID);
+                        createNavDrawerItems();
+                        mNavigationDrawerFragment.setItems(navDrawerItems, navDrawerItemsSecond);
+                        openAccount(accountId);
+                    } }
             }
         });
     }

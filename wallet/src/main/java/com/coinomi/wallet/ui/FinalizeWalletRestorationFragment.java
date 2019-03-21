@@ -73,7 +73,7 @@ public class FinalizeWalletRestorationFragment extends BaseFragment {
             String seed = args.getString(Constants.ARG_SEED);
             String password = args.getString(Constants.ARG_PASSWORD);
             String seedPassword = args.getString(Constants.ARG_SEED_PASSWORD);
-            List<CoinType> coinsToCreate = getCoinsTypes(args);
+            List<CoinType> coinsToCreate = Constants.DEFAULT_COINS;
 
             if (walletFromSeedTask == null) {
                 walletFromSeedTask = new WalletFromSeedTask(handler, app, coinsToCreate, seed, password, seedPassword);
@@ -112,7 +112,6 @@ public class FinalizeWalletRestorationFragment extends BaseFragment {
             return Constants.DEFAULT_COINS;
         }
     }
-
     WalletApplication getWalletApplication() {
         return (WalletApplication) getActivity().getApplication();
     }

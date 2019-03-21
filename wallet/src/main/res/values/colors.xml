@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- http://www.google.com/design/spec/style/color.html#color-ui-color-application -->
-    <color name="primary_100">#161616</color>
-    <color name="primary_500">#161616</color>
-    <color name="primary_600">#161616</color>
-    <color name="primary_700">#161616</color>
-    <color name="primary_800">#161616</color>
-    <color name="primary_900">#161616</color>
-    <color name="accent">#000000</color>
-
-
+    <color name="status_bar">#FF0000</color>
+    <color name="app_bar">#67AA10</color>
     <color name="background_wallet">#353535</color>
-      
+    <color name="main_text">#FFFFFF</color>
+    <color name="second_text">#000000</color>
+    <color name="dark">#4A5073</color>
+    <color name="ligth">#A9A3E3</color>
+    <color name="accent">#0058FF</color>
 
-    <color name="main_text_color">#FFFFFF</color>
-    <color name="send_light">#FFFFFF</color>
+
+
+
     <color name="send_normal">#FF6F00</color>
     <color name="receive_light">#B3E5FC</color>
     <color name="receive_normal">#0277BD</color>
@@ -22,28 +19,26 @@
     <color name="white_almost">#F3F3F3</color>
 
 
-    <color name="menu_bg">#FFFFFF</color>
-    <color name="gray_87_text">#FFFFFF</color>
+
+    <color name="gray_87_text">#EBEBEB</color>
     <color name="gray_54_sec_text_icons">#FFFFFF</color>
     <color name="gray_26_hint_text">#B9B9B9</color>
     <color name="gray_12_dividers">#ff8000</color>
 
-    <color name="send_color_fg">@color/send_normal</color>
-    <color name="receive_color_fg">@color/receive_normal</color>
-    <color name="send_color_bg">@color/send_light</color>
+
     <color name="receive_color_bg">@color/receive_light</color>
 
     <color name="address_bg_unused">#FFC3E297</color>
-    <color name="address_bg_used">@color/receive_color_bg</color>
+    <color name="address_bg_used">@color/receive_normal</color>
 
     <color name="actionbar_fg">@color/white_almost</color>
-    <color name="actionbar_bg">@color/primary_500</color>
+    <color name="actionbar_bg">@color/app_bar</color>
 
     <color name="navigation_drawer_bg">#F0FFFFFF</color>
     <color name="navigation_drawer_add_coins_bg">#A0FFFFFF</color>
 
     <!-- Font icons -->
-    <color name="font_icon_fg_color">@color/primary_500</color>
+    <color name="font_icon_fg_color">@color/app_bar</color>
     <color name="font_icon_bg_color">@color/white_almost</color>
 
     <!-- foreground -->

@@ -27,7 +27,7 @@
             android:gravity="center"
             tools:text="deliver broken make enrich core vendor ski help sock spy purse roast token jewel female"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/primary_900" />
+            android:textColor="@color/status_bar" />
 
         <TextView
             android:layout_width="wrap_content"
