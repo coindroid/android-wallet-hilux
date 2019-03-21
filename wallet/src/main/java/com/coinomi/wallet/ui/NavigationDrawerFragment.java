@@ -16,12 +16,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.coinomi.wallet.R;
 import com.coinomi.wallet.ui.common.BaseFragment;
 
 import java.util.List;
+
+import static com.coinomi.wallet.Constants.ADD_COINS_LOCKED;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -61,6 +64,8 @@ public class NavigationDrawerFragment extends BaseFragment {
     private boolean mUserLearnedDrawer;
     private NavDrawerListAdapter listAdapter;
     private NavDrawerListAdapter listAdapterUseful;
+
+    private Button addCoins;
 
     public NavigationDrawerFragment() {
     }
@@ -102,6 +107,11 @@ public class NavigationDrawerFragment extends BaseFragment {
 
         mDrawerListViewUseful = view.findViewById(R.id.useful);
         mDrawerListViewUseful.setOnItemClickListener((parent, view1, position, id) -> selectItemUseful(position));
+
+        addCoins = view.findViewById(R.id.add_coins);
+        addCoins.setOnClickListener(v -> addCoins());
+        if(ADD_COINS_LOCKED) addCoins.setVisibility(View.GONE);
+
         return view;
     }
 
