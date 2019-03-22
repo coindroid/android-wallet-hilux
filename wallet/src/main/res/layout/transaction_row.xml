@@ -95,8 +95,9 @@
             style="@style/SmallHelpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
             android:singleLine="true"
-            android:typeface="monospace"
+            android:textColor="@color/accent"
             tools:text="nUdHX BSBY QPJR EXZM BUdu 8ARn WM2m z3XQp" />
 
         <com.coinomi.wallet.ui.widget.CurrencyTextView

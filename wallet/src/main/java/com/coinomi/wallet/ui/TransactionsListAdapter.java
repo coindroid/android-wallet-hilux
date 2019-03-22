@@ -96,7 +96,7 @@ public class TransactionsListAdapter extends BaseAdapter {
         this.walletPocket = walletPocket;
 
         res = context.getResources();
-        colorSignificant = res.getColor(R.color.second_text);
+        colorSignificant = res.getColor(R.color.light_text);
         colorLessSignificant = res.getColor(R.color.gray_54_sec_text_icons);
         colorInsignificant = res.getColor(R.color.gray_26_hint_text);
         colorError = res.getColor(R.color.fg_error);
@@ -242,7 +242,7 @@ public class TransactionsListAdapter extends BaseAdapter {
                 rowValue.setTextColor(res.getColor(R.color.send_normal));
             } else {
                 rowDirectionFontIcon.setBackgroundResource(R.drawable.transaction_row_circle_bg_receive);
-                rowValue.setTextColor(res.getColor(R.color.dark));
+                rowValue.setTextColor(res.getColor(R.color.receive_normal));
             }
         } else if (confidenceType == ConfidenceType.DEAD) {
             rowLabel.setTextColor(colorSignificant);
@@ -348,7 +348,7 @@ public class TransactionsListAdapter extends BaseAdapter {
             rowLabel.setText("???"); // should not happen
         }
         rowAddress.setVisibility(View.GONE);
-        rowLabel.setTypeface(label != null ? Typeface.DEFAULT : Typeface.MONOSPACE);
+        // rowLabel.setTypeface(label != null ? Typeface.DEFAULT : Typeface.MONOSPACE);
 
         // value
         rowValue.setAlwaysSigned(true);

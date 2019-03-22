@@ -59,6 +59,7 @@
         <item name="android:textColor">@color/gray_87_text</item>
         <item name="android:textColorLink">@color/gray_87_text</item>
         <item name="android:textColorHint">@color/gray_26_hint_text</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 
     <style name="InputTextColor" parent="@android:style/TextAppearance">
@@ -68,7 +69,7 @@
     </style>
 
     <style name="NormalBoldText" parent="NormalText">
-        <item name="android:textColor">@color/gray_87_text</item>
+        <item name="android:textColor">@color/main_text</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -77,11 +78,13 @@
     </style>
 
     <style name="HintText" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/gray_26_hint_text</item>
+        <item name="android:textColor">@color/light_text</item>
     </style>
+
 
     <style name="SmallHelpText" parent="SecondaryText">
         <item name="android:textSize">@dimen/caption</item>
+
     </style>
 
     <style name="ErrorText" parent="">
@@ -123,7 +126,8 @@
     <!-- Widget amount style -->
     <style name="Amount" parent="NormalText">
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/gray_87_text</item>
+        <item name="android:textColor">@color/main_text</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
     </style>
     <style name="AmountBig" parent="Amount">
         <item name="android:textSize">@dimen/amount_text_size_big</item>
@@ -133,7 +137,7 @@
     </style>
     <style name="AmountPending" parent="Amount">
         <item name="android:textSize">@dimen/amount_pending_text_size</item>
-        <item name="android:textColor">@color/gray_26_hint_text</item>
+        <item name="android:textColor">@color/main_text</item>
     </style>
     <style name="AmountSymbol" parent="SecondaryText">
         <item name="android:singleLine">true</item>
@@ -149,7 +153,7 @@
 
     <!-- Widget send output -->
     <style name="SendOutputTypeText" parent="NormalText">
-        <item name="android:textColor">@color/gray_26_hint_text</item>
+        <item name="android:textColor">@color/main_text</item>
     </style>
     <style name="SendOutputAmount" parent="NormalText">
         <item name="android:textSize">@dimen/send_output_amount_text_size</item>
