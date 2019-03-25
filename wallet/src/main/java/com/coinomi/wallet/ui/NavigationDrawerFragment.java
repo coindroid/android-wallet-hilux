@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.coinomi.wallet.R;
 import com.coinomi.wallet.ui.common.BaseFragment;
@@ -25,6 +26,7 @@ import com.coinomi.wallet.ui.common.BaseFragment;
 import java.util.List;
 
 import static com.coinomi.wallet.Constants.ADD_COINS_LOCKED;
+import static com.coinomi.wallet.Constants.USE_FULL_TOP;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -57,6 +59,9 @@ public class NavigationDrawerFragment extends BaseFragment {
     private ListView mDrawerListView;
     private ListView mDrawerListViewUseful;
     private View mFragmentContainerView;
+
+    private RelativeLayout top;
+    private RelativeLayout bottom;
 
     private int mCurrentSelectedPosition = 0;
     private int mCurrentSelectedPositionUseful = 0;
@@ -102,10 +107,12 @@ public class NavigationDrawerFragment extends BaseFragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
 
-        mDrawerListView = view.findViewById(R.id.coins_list);
-        mDrawerListView.setOnItemClickListener((parent, view1, position, id) -> selectItem(position));
+        top = view.findViewById(R.id.rlTop);
+        bottom = view.findViewById(R.id.rlBottom);
 
-        mDrawerListViewUseful = view.findViewById(R.id.useful);
+        useFullLocation(USE_FULL_TOP, view);
+
+        mDrawerListView.setOnItemClickListener((parent, view1, position, id) -> selectItem(position));
         mDrawerListViewUseful.setOnItemClickListener((parent, view1, position, id) -> selectItemUseful(position));
 
         addCoins = view.findViewById(R.id.add_coins);
@@ -113,6 +120,18 @@ public class NavigationDrawerFragment extends BaseFragment {
         if(ADD_COINS_LOCKED) addCoins.setVisibility(View.GONE);
 
         return view;
+    }
+
+    public void useFullLocation(boolean topLocation, View view) {
+        if(topLocation) {
+            mDrawerListView = view.findViewById(R.id.coins_list_top);
+            mDrawerListViewUseful = view.findViewById(R.id.useful_top);
+            bottom.setVerticalGravity(View.GONE);
+        } else {
+            mDrawerListView = view.findViewById(R.id.coins_list_bottom);
+            mDrawerListViewUseful = view.findViewById(R.id.useful_bottom);
+            top.setVerticalGravity(View.GONE);
+        }
     }
 
     public boolean isDrawerOpen() {

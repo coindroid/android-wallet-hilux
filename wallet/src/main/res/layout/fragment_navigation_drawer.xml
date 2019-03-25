@@ -3,24 +3,55 @@
     android:layout_height="match_parent"
     android:background="@color/background_wallet">
 
-    <ListView
-        android:id="@+id/coins_list"
+    <RelativeLayout
+        android:id="@+id/rlTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background_wallet"
-        android:choiceMode="singleChoice"
-        android:divider="@color/background_wallet"
-        android:dividerHeight="0dp" />
+        android:layout_height="wrap_content">
 
-    <ListView
-        android:id="@+id/useful"
+        <ListView
+            android:id="@+id/useful_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_wallet"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp" />
+
+        <ListView
+            android:id="@+id/coins_list_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/useful_top"
+            android:background="@color/background_wallet"
+            android:choiceMode="singleChoice"
+            android:divider="@color/background_wallet"
+            android:dividerHeight="0dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlBottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/coins_list"
-        android:background="@color/background_wallet"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" />
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/coins_list_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_wallet"
+            android:choiceMode="singleChoice"
+            android:divider="@color/background_wallet"
+            android:dividerHeight="0dp" />
+
+        <ListView
+            android:id="@+id/useful_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coins_list_bottom"
+            android:background="@color/background_wallet"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/add_coins"
