@@ -3,15 +3,20 @@
     android:layout_height="match_parent"
     android:background="@color/background_wallet">
 
-    <RelativeLayout
-        android:id="@+id/rlTop"
+    <LinearLayout
+        android:id="@+id/llTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <ListView
             android:id="@+id/useful_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="0.5"
             android:background="@color/background_wallet"
             android:choiceMode="singleChoice"
             android:divider="@android:color/transparent"
@@ -20,23 +25,29 @@
         <ListView
             android:id="@+id/coins_list_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/useful_top"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="0.5"
             android:background="@color/background_wallet"
             android:choiceMode="singleChoice"
             android:divider="@color/background_wallet"
             android:dividerHeight="0dp" />
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/rlBottom"
+    <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <ListView
             android:id="@+id/coins_list_bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="0.5"
             android:background="@color/background_wallet"
             android:choiceMode="singleChoice"
             android:divider="@color/background_wallet"
@@ -45,13 +56,14 @@
         <ListView
             android:id="@+id/useful_bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/coins_list_bottom"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="0.5"
             android:background="@color/background_wallet"
             android:choiceMode="singleChoice"
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/add_coins"

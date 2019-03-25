@@ -17,8 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import com.coinomi.wallet.R;
 import com.coinomi.wallet.ui.common.BaseFragment;
@@ -60,8 +60,8 @@ public class NavigationDrawerFragment extends BaseFragment {
     private ListView mDrawerListViewUseful;
     private View mFragmentContainerView;
 
-    private RelativeLayout top;
-    private RelativeLayout bottom;
+    private LinearLayout top;
+    private LinearLayout bottom;
 
     private int mCurrentSelectedPosition = 0;
     private int mCurrentSelectedPositionUseful = 0;
@@ -107,8 +107,8 @@ public class NavigationDrawerFragment extends BaseFragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
 
-        top = view.findViewById(R.id.rlTop);
-        bottom = view.findViewById(R.id.rlBottom);
+        top = view.findViewById(R.id.llTop);
+        bottom = view.findViewById(R.id.llBottom);
 
         useFullLocation(USE_FULL_TOP, view);
 
@@ -126,11 +126,11 @@ public class NavigationDrawerFragment extends BaseFragment {
         if(topLocation) {
             mDrawerListView = view.findViewById(R.id.coins_list_top);
             mDrawerListViewUseful = view.findViewById(R.id.useful_top);
-            bottom.setVerticalGravity(View.GONE);
+            bottom.setVisibility(View.GONE);
         } else {
             mDrawerListView = view.findViewById(R.id.coins_list_bottom);
             mDrawerListViewUseful = view.findViewById(R.id.useful_bottom);
-            top.setVerticalGravity(View.GONE);
+            top.setVisibility(View.GONE);
         }
     }
 

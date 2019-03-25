@@ -142,5 +142,21 @@ public class Constants {
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
     }
 }
