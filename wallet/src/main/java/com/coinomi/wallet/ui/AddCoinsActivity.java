@@ -55,7 +55,7 @@ public class AddCoinsActivity extends BaseWalletActivity
         selectedCoin = CoinID.typeFromId(ids.get(0));
 
         if (wallet.isAccountExists(selectedCoin)) {
-            new AlertDialog.Builder(this)
+            new AlertDialog.Builder(this, R.style.AlertDialogTheme)
                     .setTitle(getString(R.string.coin_already_added_title, selectedCoin.getName()))
                     .setMessage(R.string.coin_already_added)
                     .setPositiveButton(R.string.button_ok, null)
