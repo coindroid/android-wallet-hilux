@@ -26,7 +26,7 @@ import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_SECTION_TITLE;
  */
 public class Constants {
 
-    public static final boolean USE_FULL_TOP = true;
+    public static final boolean USE_FULL_TOP = false;
 
     public static final boolean DRAWER_LOCKED = false;
     public static final boolean ADD_COINS_LOCKED = false;
