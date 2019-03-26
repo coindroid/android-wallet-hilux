@@ -137,13 +137,8 @@ public class Constants {
 
     public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
         navDrawerItemsSecond.clear();
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Useful");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Bue & SELL", R.drawable.ic_launcher, "http://google.com");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Any text", R.drawable.ic_launcher, "http://google.com");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
         }
 }

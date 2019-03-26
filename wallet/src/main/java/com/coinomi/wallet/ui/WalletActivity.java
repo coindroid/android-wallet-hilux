@@ -234,7 +234,7 @@ final public class WalletActivity extends BaseWalletActivity implements
     private void createNavDrawerItems() {
         navDrawerItems.clear();
         NavDrawerItem.addItem(navDrawerItems, ITEM_SECTION_TITLE, getString(R.string.navigation_drawer_wallet));
-        NavDrawerItem.addItem(navDrawerItems, ITEM_OVERVIEW, getString(R.string.title_activity_overview), R.drawable.ic_launcher, null);
+        NavDrawerItem.addItem(navDrawerItems, ITEM_OVERVIEW, getString(R.string.title_activity_overview), R.drawable.dollar_sign, null);
         for (WalletAccount account : getAllAccounts()) {
             NavDrawerItem.addItem(navDrawerItems, ITEM_COIN, account.getDescriptionOrCoinName(),
                     Constants.COINS_ICONS.get(account.getCoinType()), account.getId());

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- System app color -->
+    <color name="splashscreen_background">#000000</color>
     <color name="status_bar">#000000</color>
     <color name="app_bar">#222222</color>
+
+    <!-- Main App color -->
     <color name="background_wallet">#353535</color>
     <color name="main_text">#FFFFFF</color>
     <color name="light_text">#B4B4B4</color>
@@ -10,16 +15,28 @@
     <color name="ligth">#A9A3E3</color>
     <color name="accent">#0058FF</color>
 
+    <!-- Dialog window -->
+    <color name="dialog_text">#FFFFFF</color>
+    <color name="dialog_light_text">#B4B4B4</color>
+    <color name="background_dialog">#353535</color>
+    <color name="positive_text_button">#FFFFFF</color>
+    <color name="negative_text_button">#FFFFFF</color>
 
 
-
+    <!-- Transactions -->
     <color name="send_normal">#B20000</color>
     <color name="receive_normal">#127905</color>
     <color name="receive_light">#B3E5FC</color>
 
+
+
+
+
+
+    <!-- Constant color -->
     <color name="white">#FFFFFF</color>
     <color name="white_almost">#F3F3F3</color>
-
+    <color name="black">#EBEBEB</color>
 
 
     <color name="gray_87_text">#EBEBEB</color>
