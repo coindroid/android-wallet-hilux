@@ -30,6 +30,7 @@ public class TermsOfUseDialog extends DialogFragment {
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         final DialogBuilder builder = new DialogBuilder(getActivity());
         builder.setTitle(R.string.terms_of_service_title);
         builder.setMessage(R.string.terms_of_service);

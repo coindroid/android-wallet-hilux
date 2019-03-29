@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="splash_screen_color">#ff8000</color>
+
 
     <!-- System app color -->
-    <color name="splashscreen_background">#000000</color>
+    <color name="splash_screen_color">#F8F8F8</color>
     <color name="status_bar">#000000</color>
-    <color name="app_bar">#222222</color>
+    <color name="app_bar">#0e469f</color>
 
     <!-- Main App color -->
-    <color name="background_wallet">#353535</color>
-    <color name="main_text">#FFFFFF</color>
-    <color name="light_text">#B4B4B4</color>
+    <color name="background_wallet">#F8F8F8</color>
+    <color name="main_text">#484848</color>
+    <color name="light_text">#7E7E7E</color>
     <color name="second_text">#000000</color>
-    <color name="dark">#242424</color>
+    <color name="dark">#01146B</color>
     <color name="ligth">#A9A3E3</color>
     <color name="accent">#0058FF</color>
 

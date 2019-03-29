@@ -16,6 +16,9 @@
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/background</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -30,7 +33,7 @@
         <item name="colorAccent">@color/gray_87_text</item>
 
         <item name="android:windowContentOverlay">@null</item>
-
+        <item name="android:navigationBarColor">@color/splash_screen_color</item>
         <item name="android:textColor">@color/main_text</item>
         <item name="android:textColorSecondary">@color/second_text</item>
         <item name="android:itemBackground">@color/app_bar</item>
@@ -47,15 +50,16 @@
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:windowBackground">@color/dark</item>
-
+        <item name="android:textColor">@color/dialog_text</item>
+        <item name="android:textColorPrimary">@color/dialog_text</item>
     </style>
 
     <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">#f00</item>
+        <item name="android:textColor">#ACACAC</item>
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">#00f</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 
@@ -80,16 +84,16 @@
 
     <!-- Generic text styles -->
     <style name="NormalText" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/gray_87_text</item>
-        <item name="android:textColorLink">@color/gray_87_text</item>
-        <item name="android:textColorHint">@color/gray_26_hint_text</item>
+        <item name="android:textColor">@color/main_text</item>
+        <item name="android:textColorLink">@color/main_text</item>
+        <item name="android:textColorHint">@color/main_text</item>
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 
     <style name="InputTextColor" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/gray_87_text</item>
-        <item name="android:textColorHint">@color/gray_26_hint_text</item>
-        <item name="android:backgroundTint">@color/gray_54_sec_text_icons</item>
+        <item name="android:textColor">@color/main_text</item>
+        <item name="android:textColorHint">@color/main_text</item>
+        <item name="android:backgroundTint">@color/ligth</item>
     </style>
 
     <style name="NormalBoldText" parent="NormalText">
@@ -124,7 +128,7 @@
     </style>
 
     <style name="SeedText" parent="">
-        <item name="android:textColor">@color/gray_87_text</item>
+        <item name="android:textColor">@color/main_text</item>
         <item name="android:textSize">@dimen/seed_text_size</item>
     </style>
 

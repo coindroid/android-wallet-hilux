@@ -29,8 +29,10 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/welcome_text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/fg_significant" />
-
+            android:textColor="@color/main_text"
+            android:visibility="invisible"
+            />
+        <!-- ONLY_BONE android:visibility="invisible"-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

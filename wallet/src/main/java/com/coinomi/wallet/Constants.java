@@ -125,7 +125,7 @@ public class Constants {
     }
 
     public static final CoinType DEFAULT_COIN = HiluxMain.get();
-    public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) HiluxMain.get());
+    public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) BitcoinMain.get());
 
     public static final List<CoinType> SUPPORTED_COINS = ImmutableList.of(
             HiluxMain.get(),
@@ -140,5 +140,7 @@ public class Constants {
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
         NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
+        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
+
         }
 }

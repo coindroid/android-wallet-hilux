@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/splash_screen_color" />
     <item>
-        <bitmap android:src="@drawable/intro_logo"
+        <bitmap android:src="@drawable/b_one_payment_logo"
             android:gravity="center" />
     </item>
 </layer-list>
