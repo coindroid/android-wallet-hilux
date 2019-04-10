@@ -13,16 +13,16 @@
     <color name="main_text">#484848</color>
     <color name="light_text">#7E7E7E</color>
     <color name="second_text">#000000</color>
-    <color name="dark">#01146B</color>
+    <color name="dark">#E9F2FF</color>
     <color name="ligth">#A9A3E3</color>
-    <color name="accent">#0058FF</color>
+    <color name="accent">#9FAFE1</color>
 
     <!-- Dialog window -->
-    <color name="dialog_text">#FFFFFF</color>
+    <color name="dialog_text">#5A5A5A</color>
+    <color name="dialog_background">#FFFFFF</color>
     <color name="dialog_light_text">#B4B4B4</color>
-    <color name="background_dialog">#353535</color>
-    <color name="positive_text_button">#FFFFFF</color>
-    <color name="negative_text_button">#FFFFFF</color>
+    <color name="positive_text_button">#000000</color>
+    <color name="negative_text_button">#9C9C9C</color>
 
 
     <!-- Transactions -->

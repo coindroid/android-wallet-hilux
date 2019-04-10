@@ -38,6 +38,11 @@
         <item name="android:textColorSecondary">@color/second_text</item>
         <item name="android:itemBackground">@color/app_bar</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:itemTextAppearance">@style/MenuItemTextAppearance</item>
+    </style>
+
+    <style name="MenuItemTextAppearance">
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="MyDialog" parent="@android:style/Theme.Dialog">
@@ -49,17 +54,17 @@
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:windowBackground">@color/dark</item>
+        <item name="android:windowBackground">@color/dialog_background</item>
         <item name="android:textColor">@color/dialog_text</item>
         <item name="android:textColorPrimary">@color/dialog_text</item>
     </style>
 
     <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">#ACACAC</item>
+        <item name="android:textColor">@color/negative_text_button</item>
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/positive_text_button</item>
     </style>
 
 
@@ -71,7 +76,7 @@
     </style>
 
     <style name="BorderlessButtonLink" parent="BorderlessButton">
-        <item name="android:textColor">@color/app_bar</item>
+        <item name="android:textColor">@color/main_text</item>
     </style>
 
     <!-- Font icons -->
@@ -214,6 +219,7 @@
 
     <!-- About Activity -->
     <style name="AppNameLong">
+        <item name="android:textColor">@color/main_text</item>
         <item name="android:textSize">@dimen/app_name_long</item>
     </style>
 

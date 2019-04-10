@@ -83,8 +83,8 @@
             style="@style/NormalText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autoLink="web"
             android:paddingTop="16dp"
+            android:autoLink="email"
             android:text="@string/contact_us_ticket_portal" />
 
         <TextView

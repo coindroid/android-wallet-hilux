@@ -94,7 +94,7 @@ public class AddCoinsActivity extends BaseWalletActivity
         final Intent result = new Intent();
         if (error != null) {
             if (error instanceof KeyCrypterException) {
-                new AlertDialog.Builder(this)
+                new AlertDialog.Builder(this,R.style.AlertDialogTheme)
                         .setTitle(getString(R.string.unlocking_wallet_error_title))
                         .setMessage(R.string.unlocking_wallet_error_detail)
                         .setPositiveButton(R.string.button_retry, new DialogInterface.OnClickListener() {

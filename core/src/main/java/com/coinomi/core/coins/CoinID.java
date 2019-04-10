@@ -24,7 +24,9 @@ import java.util.Set;
 public enum CoinID {
     BITCOIN_MAIN(BitcoinMain.get()),
     DASH_MAIN(DashMain.get()),
-    HILUX_MAIN(HiluxMain.get());
+    BITCOINONE_MAIN(BitcoinoneMain.get()),
+    BITCOINTURBOKOIN_MAIN(BitcointurbokoinMain.get()),
+    DOGECOINPRIVATE_MAIN(DogecoinprivateMain.get());
 
     private static List<CoinType> types;
     private static HashMap<String, CoinType> idLookup = new HashMap<>();

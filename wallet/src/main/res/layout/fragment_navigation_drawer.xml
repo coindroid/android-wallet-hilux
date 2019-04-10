@@ -64,6 +64,6 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/actionbar_bg"
         android:text="@string/button_add_coins"
-        android:textColor="@color/main_text" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

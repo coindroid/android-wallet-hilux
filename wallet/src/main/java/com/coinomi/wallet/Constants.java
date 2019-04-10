@@ -2,9 +2,12 @@ package com.coinomi.wallet;
 
 import android.text.format.DateUtils;
 
-import com.coinomi.core.coins.HiluxMain;
+import com.coinomi.core.coins.BitcoinoneMain;
 import com.coinomi.core.coins.BitcoinMain;
 import com.coinomi.core.coins.DashMain;
+import com.coinomi.core.coins.DogecoinprivateMain;
+import com.coinomi.core.coins.BitcointurbokoinMain;
+
 import com.coinomi.core.coins.CoinID;
 import com.coinomi.core.coins.CoinType;
 import com.coinomi.core.network.CoinAddress;
@@ -26,7 +29,7 @@ import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_SECTION_TITLE;
  */
 public class Constants {
 
-    public static final boolean USE_FULL_TOP = true;
+    public static final boolean USE_FULL_TOP = false;
 
     public static final boolean DRAWER_LOCKED = false;
     public static final boolean ADD_COINS_LOCKED = false;
@@ -91,11 +94,11 @@ public class Constants {
     public static final String MARKET_APP_URL = "market://details?id=%s";
     public static final String BINARY_URL = "https://github.com/Hilux/Hilux/releases";
 
-    public static final String VERSION_URL = "https://www.hilux.ioversion";
-    public static final String PARTNERS_URI = "https://www.hilux.iopartner.json";
-    public static final String SUPPORT_EMAIL = "hilux@gmail.com";
+    public static final String VERSION_URL = "https://www.b_one_payment.ioversion";
+    public static final String PARTNERS_URI = "https://www.b_one_payment.iopartner.json";
+    public static final String SUPPORT_EMAIL = "support@bonepayment.com";
 
-    // TODO move to resource files
+ // TODO move to resource files
     public static final List<CoinAddress> DEFAULT_COINS_SERVERS = ImmutableList.of(
             new CoinAddress(BitcoinMain.get(),      new ServerAddress("btc-cce-1.coinomi.net", 5001),
                     new ServerAddress("btc-cce-2.coinomi.net", 5001)),
@@ -104,8 +107,14 @@ public class Constants {
             new CoinAddress(DashMain.get(),         new ServerAddress("drk-cce-1.coinomi.net", 5013),
                     new ServerAddress("drk-cce-2.coinomi.net", 5013)),
 
-            new CoinAddress(HiluxMain.get(), new ServerAddress("node1.coindroid.org", 56011),
-                    new ServerAddress("node1.coindroid.org", 56011))
+            new CoinAddress(BitcoinoneMain.get(), new ServerAddress("45.32.237.148", 9100),
+                    new ServerAddress("45.32.237.148", 9100)),
+
+            new CoinAddress(DogecoinprivateMain.get(), new ServerAddress("95.179.189.149", 1111),
+                    new ServerAddress("95.179.189.149", 1111)),
+
+            new CoinAddress(BitcointurbokoinMain.get(), new ServerAddress("45.77.137.171", 1111),
+                    new ServerAddress("45.77.137.171", 1111))
 
     );
 
@@ -113,34 +122,39 @@ public class Constants {
     public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
     static {
         COINS_ICONS = new HashMap<>();
-        COINS_ICONS.put(CoinID.HILUX_MAIN.getCoinType(), R.drawable.hilux);
+        COINS_ICONS.put(CoinID.BITCOINONE_MAIN.getCoinType(), R.drawable.bitcoinone);
         COINS_ICONS.put(CoinID.BITCOIN_MAIN.getCoinType(), R.drawable.bitcoin);
         COINS_ICONS.put(CoinID.DASH_MAIN.getCoinType(), R.drawable.dash);
-
+        COINS_ICONS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), R.drawable.dogecoinprivate);
+        COINS_ICONS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), R.drawable.bitcoin);
 
         COINS_BLOCK_EXPLORERS = new HashMap<>();
+
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_MAIN.getCoinType(), "https://blockchain.info/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DASH_MAIN.getCoinType(), "http://explorer.dashpay.io/tx/%s");
-        COINS_BLOCK_EXPLORERS.put(CoinID.HILUX_MAIN.getCoinType(), "http://explorer.hiluxcoin.com/tx/%s");
+        COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINONE_MAIN.getCoinType(), "http://explorer.bitcoinone.io/tx/%s");
+        COINS_BLOCK_EXPLORERS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "http://explorer.dogecoinprivate.dog/tx/%s");
+        COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "http://explorer.bitcointurbokoin.com/tx/%s");
     }
 
-    public static final CoinType DEFAULT_COIN = HiluxMain.get();
+    public static final CoinType DEFAULT_COIN = BitcoinMain.get();
     public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) BitcoinMain.get());
 
     public static final List<CoinType> SUPPORTED_COINS = ImmutableList.of(
-            HiluxMain.get(),
+            BitcoinoneMain.get(),
             BitcoinMain.get(),
-            DashMain.get()
-
-
+            DashMain.get(),
+            DogecoinprivateMain.get(),
+            BitcointurbokoinMain.get()
     );
 
     public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
         navDrawerItemsSecond.clear();
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
-        NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
+     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
+     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
+     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
+      //  NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
 
         }
+
 }
