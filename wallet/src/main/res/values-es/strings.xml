@@ -308,4 +308,5 @@
     <string name="account_private_key_label">llave privada</string>
     <string name="account_extended_private_key_label">llave privada extendida</string>
     <string name="account_private_key_warning">La llave privada le permite enviar las monedas desde esta cuenta. No es necesario realizar copias de seguridad de  esta llave , ya que se deriva de su <i>frase recuperación</i></string>
+    <string name="wallet_title_info">información</string>
 </resources>

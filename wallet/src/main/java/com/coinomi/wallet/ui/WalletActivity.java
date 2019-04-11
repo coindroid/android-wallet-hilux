@@ -758,6 +758,10 @@ final public class WalletActivity extends BaseWalletActivity implements
         return accountFragment != null && accountFragment.isVisible() && accountFragment.goToSend(true);
     }
 
+    private boolean goToInfo() {
+        return accountFragment != null && accountFragment.isVisible() && accountFragment.goToInfo(true);
+    }
+
     private boolean resetSend() {
         return accountFragment != null && accountFragment.isVisible() && accountFragment.resetSend();
     }
@@ -780,6 +784,11 @@ final public class WalletActivity extends BaseWalletActivity implements
 
     @Override
     public void onSendSelected() {
+        finishActionMode();
+    }
+
+    @Override
+    public void onInfoSelected() {
         finishActionMode();
     }
 

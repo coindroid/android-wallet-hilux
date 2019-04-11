@@ -308,4 +308,5 @@
     <string name="account_private_key_label">chiave privata</string>
     <string name="account_extended_private_key_label">chiave privata estesa</string>
     <string name="account_private_key_warning">La chiave privata ti permette di inviare monete da questo conto. Non è necessario salvare questa chiave in quanto è derivata dalla tua <i>frase di recupero</i></string>
+    <string name="wallet_title_info">informazione</string>
 </resources>

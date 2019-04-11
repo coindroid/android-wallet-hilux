@@ -309,4 +309,5 @@
     <string name="account_private_key_label">ιδιωτικό κλειδί</string>
     <string name="account_extended_private_key_label">επεκταμένο ιδιωτικό κλειδί</string>
     <string name="account_private_key_warning">Το ιδιωτικό κλειδί επιτρέπει την αποστολή νομισμάτων από αυτόν τον λογαριασμό. Δεν χρειάζεται να αποθηκεύσετε αυτό το κλειδί, αφού προκύπτει από την <i>φράση ανάκτησης</i> του πορτοφολιού σας</string>
+    <string name="wallet_title_info">πληροφορίες</string>
 </resources>
