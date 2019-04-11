@@ -305,4 +305,5 @@
     <string name="account_private_key_label">私钥</string>
     <string name="account_extended_private_key_label">延展私钥</string>
     <string name="account_private_key_warning">私钥可以让你从此帐户中发送资金。没有必要备份这个私钥，因为其可以通过  <i>恢复钱包密码</i> 重新生成。</string>
+    <string name="wallet_title_info">信息</string>
 </resources>

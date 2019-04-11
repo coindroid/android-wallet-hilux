@@ -43,7 +43,7 @@ public class AccountFragment extends BaseFragment {
     private static final Logger log = LoggerFactory.getLogger(AccountFragment.class);
 
     private static final String ACCOUNT_CURRENT_SCREEN = "account_current_screen";
-    private static final int NUM_OF_SCREENS = 3;
+    private static final int NUM_OF_SCREENS = 4;
     // Set offscreen page limit to 2 because receive fragment draws a QR code and we don't
     // want to re-render that if we go to the SendFragment and back
     private static final int OFF_SCREEN_LIMIT = 2;
@@ -52,6 +52,7 @@ public class AccountFragment extends BaseFragment {
     private static final int RECEIVE = 0;
     private static final int BALANCE = 1;
     private static final int SEND = 2;
+    private static final int INFO = 3;
 
     // Handler ids
     private static final int SEND_TO_URI = 0;
@@ -113,6 +114,9 @@ public class AccountFragment extends BaseFragment {
                             break;
                         case SEND:
                             listener.onSendSelected();
+                            break;
+                        case INFO:
+                            listener.onInfoSelected();
                             break;
                         default:
                             throw new RuntimeException("Unknown screen item: " + position);
@@ -251,6 +255,9 @@ public class AccountFragment extends BaseFragment {
                 case SEND:
                     if (f instanceof SendFragment) return f;
                     break;
+                case INFO:
+                    if (f instanceof InfoFragment) return f;
+                    break;
                 default:
                     throw new RuntimeException("Cannot get fragment, unknown screen item: " + item);
             }
@@ -268,6 +275,8 @@ public class AccountFragment extends BaseFragment {
                 return (T) BalanceFragment.newInstance(accountId);
             case SEND:
                 return (T) SendFragment.newInstance(accountId);
+            case INFO:
+                return (T) InfoFragment.newInstance(accountId);
             default:
                 throw new RuntimeException("Cannot create fragment, unknown screen item: " + item);
         }
@@ -284,6 +293,8 @@ public class AccountFragment extends BaseFragment {
     public boolean goToSend(boolean smoothScroll) {
         return goToItem(SEND, smoothScroll);
     }
+
+    public boolean goToInfo(boolean smoothScroll) { return goToItem(INFO, smoothScroll); }
 
     private boolean goToItem(int item, boolean smoothScroll) {
         if (viewPager != null && viewPager.getCurrentItem() != item) {
@@ -306,10 +317,12 @@ public class AccountFragment extends BaseFragment {
         private final String receiveTitle;
         private final String sendTitle;
         private final String balanceTitle;
+        private final String infoTitle;
 
         private AddressRequestFragment request;
         private SendFragment send;
         private BalanceFragment balance;
+        private InfoFragment info;
 
         private WalletAccount account;
 
@@ -318,6 +331,7 @@ public class AccountFragment extends BaseFragment {
             receiveTitle = context.getString(R.string.wallet_title_request);
             sendTitle = context.getString(R.string.wallet_title_send);
             balanceTitle = context.getString(R.string.wallet_title_balance);
+            infoTitle = context.getString(R.string.wallet_title_info);
             this.account = account;
         }
 
@@ -333,6 +347,9 @@ public class AccountFragment extends BaseFragment {
                 case BALANCE:
                     if (balance == null) balance = createFragment(account, i);
                     return balance;
+                case INFO:
+                    if(info == null) info = createFragment(account, i);
+                    return info;
                 default:
                     throw new RuntimeException("Cannot get item, unknown screen item: " + i);
             }
@@ -350,6 +367,7 @@ public class AccountFragment extends BaseFragment {
                 case RECEIVE: return receiveTitle;
                 case SEND: return sendTitle;
                 case BALANCE: return balanceTitle;
+                case INFO: return infoTitle;
                 default: throw new RuntimeException("Cannot get item, unknown screen item: " + i);
             }
         }
@@ -374,5 +392,6 @@ public class AccountFragment extends BaseFragment {
         void onReceiveSelected();
         void onBalanceSelected();
         void onSendSelected();
+        void onInfoSelected();
     }
 }
