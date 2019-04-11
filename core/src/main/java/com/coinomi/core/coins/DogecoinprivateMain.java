@@ -17,7 +17,7 @@ public class DogecoinprivateMain extends BitFamily {
         spendableCoinbaseDepth = 100;
         dumpedPrivateKeyHeader = 158;
 
-        name = "DogecoinPrivate";
+        name = "Dogecoin Private";
         symbol = "DOGP";
         uriScheme = "dogecoinprivate";
         bip44Index = 0;

@@ -46,6 +46,7 @@ repositories {
     flatDir {
         dirs 'aars'
     }
+    maven { url 'https://jitpack.io' }
 }
 
 //sourceSets {
@@ -85,6 +86,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
+    implementation 'com.github.SumiMakito:AwesomeQRCode:1.0.6'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

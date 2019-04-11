@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
+import android.graphics.BitmapFactory;
 
 import com.coinomi.wallet.R;
 import com.google.zxing.BarcodeFormat;
@@ -14,6 +15,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.encoder.Encoder;
 import com.google.zxing.qrcode.encoder.QRCode;
+import com.github.sumimakito.awesomeqr.AwesomeQRCode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +42,21 @@ public class QrUtils {
                                  int viewSizeResId, int qrQuiteZoneResId) {
 
         int qrCodeViewSize = res.getDimensionPixelSize(viewSizeResId);
-        int qrQuiteZone = (int) res.getDimension(qrQuiteZoneResId);
+
+        view.getLayoutParams().height = 800;
+        view.getLayoutParams().width = 800;
+        view.requestLayout();
+
+
+         Bitmap bg = BitmapFactory.decodeResource(res, R.drawable.intro_logo);
+         Bitmap qr = new AwesomeQRCode.Renderer()
+                        .contents(content).background(bg)
+                        .size(800).margin(20)
+                        .render();
+
+        view.setImageBitmap(qr);
+        /*
+
 
         Bitmap bitmap = create(content, qrQuiteZone);
         if (bitmap == null) {
@@ -49,12 +65,9 @@ public class QrUtils {
 
         BitmapDrawable qr = new BitmapDrawable(res, bitmap);
         qr.setFilterBitmap(false);
-        int qrSize = (qrCodeViewSize / qr.getIntrinsicHeight()) * qr.getIntrinsicHeight();
-        view.getLayoutParams().height = qrSize;
-        view.getLayoutParams().width = qrSize;
-        view.requestLayout();
-        view.setImageDrawable(qr);
 
+
+      */
         return true;
     }
 

@@ -14,7 +14,7 @@ public class BitcointurbokoinMain extends BitFamily {
         spendableCoinbaseDepth = 100;
         dumpedPrivateKeyHeader = 154;
 
-        name = "BitcoinTurboKoin";
+        name = "Bitcoin Turbo Koin";
         symbol = "BTK";
         uriScheme = "bitcointurbokoin";
         bip44Index = 0;

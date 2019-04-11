@@ -26,7 +26,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo" />
+            android:src="@drawable/b_one_payment_logo" />
 
         <TextView
             android:id="@+id/textView"

@@ -97,8 +97,8 @@ public class TransactionsListAdapter extends BaseAdapter {
 
         res = context.getResources();
         colorSignificant = res.getColor(R.color.light_text);
-        colorLessSignificant = res.getColor(R.color.gray_54_sec_text_icons);
-        colorInsignificant = res.getColor(R.color.gray_26_hint_text);
+        colorLessSignificant = res.getColor(R.color.receive_normal);
+        colorInsignificant = res.getColor(R.color.send_normal);
         colorError = res.getColor(R.color.fg_error);
         minedTitle = res.getString(R.string.wallet_transactions_coinbase);
         fontIconMined = res.getString(R.string.font_icon_mining);

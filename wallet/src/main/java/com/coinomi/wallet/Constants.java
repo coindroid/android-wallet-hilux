@@ -141,11 +141,11 @@ public class Constants {
     public static final List<CoinType> DEFAULT_COINS = ImmutableList.of((CoinType) BitcoinMain.get());
 
     public static final List<CoinType> SUPPORTED_COINS = ImmutableList.of(
-            BitcoinoneMain.get(),
             BitcoinMain.get(),
             DashMain.get(),
-            DogecoinprivateMain.get(),
-            BitcointurbokoinMain.get()
+            BitcoinoneMain.get(),
+            BitcointurbokoinMain.get(),
+            DogecoinprivateMain.get()
     );
 
     public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
