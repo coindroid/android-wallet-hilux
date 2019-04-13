@@ -187,7 +187,7 @@ public class Constants {
         //---------------------------InfoDogeCoinPrivate------------------------------
         COINS_BLOCK_INFO_DOGECOINPRIVATE = new HashMap<>();
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.TITLE, "DogeCoin");
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.LOGO, R.drawable.dogecoin);
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.LOGO, R.drawable.dogecoinprivate);
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
