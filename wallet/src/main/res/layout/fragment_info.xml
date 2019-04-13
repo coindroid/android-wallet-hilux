@@ -15,13 +15,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Bitcoin"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/tvDescribe"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bitcoin" />
 
         <ImageView
             android:id="@+id/ivLogo"
@@ -41,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="1 BTC"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+            tools:text="1 BTC" />
 
         <TextView
             android:id="@+id/tvPriceDescribe"
@@ -51,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="( 4000 USD )"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+            tools:text="( 4000 USD )" />
 
         <TextView
             android:id="@+id/tvDescribe"
@@ -62,20 +62,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="Текст — середній елемент
-        схеми комунікації, яку можна уявити у вигляді
-        триелементної структури: автор (адресант) →
-        текст → читач (адресат). Як серединний (проміжний)
-        елемент комунікативного акту текст виявляє свою специфіку
-        у кодуванні і декодуванні. Щодо мовця (адресанта) текст
-        є кодованою величиною, оскільки мовець кодує певну інформацію.
-        Для сприйняття вміщеної у тексті інформації читач повинен
-        її декодувати (А. П. Загнітко)."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="2"
             app:layout_constraintStart_toEndOf="@+id/ivLogo"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Текст — середній елемент схеми комунікації, яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат)." />
 
         <TextView
             android:id="@+id/tvTitleSite"
@@ -83,12 +75,12 @@
             android:layout_height="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:text="www.bitcoin.com"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvDescribe"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescribe" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDescribe"
+            tools:text="www.bitcoin.com" />
 
         <TextView
             android:id="@+id/tvTitleTelegram"
@@ -96,12 +88,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="t.me/bitcoin"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvDescribe"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleSite" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleSite"
+            tools:text="t.me/bitcoin" />
 
         <TextView
             android:id="@+id/tvTitleDiscord"
@@ -109,12 +101,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Discord.com/PPR3"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvDescribe"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleTelegram" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleTelegram"
+            tools:text="Discord.com/PPR3" />
 
         <TextView
             android:id="@+id/tvTitleEmail"
@@ -122,83 +114,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Email@support.com"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvDescribe"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleDiscord" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDiscord"
+            tools:text="Email@support.com" />
 
         <TextView
             android:id="@+id/tvTitleExchanges"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
-            android:text="EXCHANGES:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleEmail" />
-
-        <TextView
-            android:id="@+id/tvName1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="16dp"
-            android:text="CREX24"
+            android:layout_marginTop="26dp"
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/tvName3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleEmail"
+            android:text="EXCHANGES:" />
+
+        <ListView
+            android:id="@+id/lvExchanges"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleExchanges" />
-
-        <TextView
-            android:id="@+id/tvName2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"
-            android:text="HITBTC"
-            android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvName4"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvName1"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/tvName3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="BITFINEX"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/tvName1"
-            app:layout_constraintTop_toTopOf="@+id/tvName1" />
-
-        <TextView
-            android:id="@+id/tvName4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="SUTHEXCAHNGE"
-            android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@+id/tvName2"
-            app:layout_constraintStart_toStartOf="@+id/tvName3"
-            app:layout_constraintTop_toBottomOf="@+id/tvName3" />
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

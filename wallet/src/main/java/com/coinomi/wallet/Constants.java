@@ -13,15 +13,13 @@ import com.coinomi.core.coins.CoinType;
 import com.coinomi.core.network.CoinAddress;
 import com.coinomi.stratumj.ServerAddress;
 import com.coinomi.wallet.ui.NavDrawerItem;
+import com.coinomi.wallet.ui.info.CoinInfoData;
 import com.google.common.collect.ImmutableList;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_LINK;
-import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_SECTION_TITLE;
 
 /**
  * @author John L. Jegutanis
@@ -78,7 +76,9 @@ public class Constants {
 
     public static final long RATE_UPDATE_FREQ_MS = 30 * DateUtils.SECOND_IN_MILLIS;
 
-    /** Default currency to use if all default mechanisms fail. */
+    /**
+     * Default currency to use if all default mechanisms fail.
+     */
     public static final String DEFAULT_EXCHANGE_CURRENCY = "USD";
 
     public static final Charset UTF_8 = Charset.forName("UTF-8");
@@ -98,13 +98,13 @@ public class Constants {
     public static final String PARTNERS_URI = "https://www.b_one_payment.iopartner.json";
     public static final String SUPPORT_EMAIL = "support@bonepayment.com";
 
- // TODO move to resource files
+    // TODO move to resource files
     public static final List<CoinAddress> DEFAULT_COINS_SERVERS = ImmutableList.of(
-            new CoinAddress(BitcoinMain.get(),      new ServerAddress("btc-cce-1.coinomi.net", 5001),
+            new CoinAddress(BitcoinMain.get(), new ServerAddress("btc-cce-1.coinomi.net", 5001),
                     new ServerAddress("btc-cce-2.coinomi.net", 5001)),
 
 
-            new CoinAddress(DashMain.get(),         new ServerAddress("drk-cce-1.coinomi.net", 5013),
+            new CoinAddress(DashMain.get(), new ServerAddress("drk-cce-1.coinomi.net", 5013),
                     new ServerAddress("drk-cce-2.coinomi.net", 5013)),
 
             new CoinAddress(BitcoinoneMain.get(), new ServerAddress("45.32.237.148", 9100),
@@ -118,8 +118,17 @@ public class Constants {
 
     );
 
+    public static String[] exchangesName = { "CREX24", "BITFINEX", "HITBTC", "SUTHEXCAHNGE" };
+
     public static final HashMap<CoinType, Integer> COINS_ICONS;
     public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
+
+    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOINONE;
+    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOIN;
+    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_DASH;
+    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_DOGECOINPRIVATE;
+    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOINTURBOKOIN;
+
     static {
         COINS_ICONS = new HashMap<>();
         COINS_ICONS.put(CoinID.BITCOINONE_MAIN.getCoinType(), R.drawable.bitcoinone);
@@ -135,6 +144,71 @@ public class Constants {
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINONE_MAIN.getCoinType(), "http://explorer.bitcoinone.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "http://explorer.dogecoinprivate.dog/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "http://explorer.bitcointurbokoin.com/tx/%s");
+
+        //---------------------------InfoBitcoinOne------------------------------
+        COINS_BLOCK_INFO_BITCOINONE = new HashMap<>();
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.TITLE, "BitcoinOne");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.LOGO, R.drawable.bitcoinone);
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.PRICE, "1 BTC");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
+                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.SITE, "www.bitcoin.com");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
+        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.EMAIL, "Email@support.com");
+
+        //---------------------------InfoBitcoin------------------------------
+        COINS_BLOCK_INFO_BITCOIN = new HashMap<>();
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.TITLE, "Bitcoin");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.LOGO, R.drawable.bitcoin);
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.PRICE, "1 BTC");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
+                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.SITE, "www.bitcoin.com");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
+        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.EMAIL, "Email@support.com");
+
+        //---------------------------InfoDash------------------------------
+        COINS_BLOCK_INFO_DASH = new HashMap<>();
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.TITLE, "Dash");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.LOGO, R.drawable.dash);
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.PRICE, "1 BTC");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
+                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.SITE, "www.bitcoin.com");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
+        COINS_BLOCK_INFO_DASH.put(CoinInfoData.EMAIL, "Email@support.com");
+
+        //---------------------------InfoDogeCoinPrivate------------------------------
+        COINS_BLOCK_INFO_DOGECOINPRIVATE = new HashMap<>();
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.TITLE, "DogeCoin");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.LOGO, R.drawable.dogecoin);
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE, "1 BTC");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
+                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.SITE, "www.bitcoin.com");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
+        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.EMAIL, "Email@support.com");
+
+        //---------------------------InfoBitcoinTurboKoin------------------------------
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN = new HashMap<>();
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.TITLE, "TurboCoin");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.LOGO, R.drawable.bitcointurbokoin);
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.PRICE, "1 BTC");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.DESCRIBE, "Кар-кар Текст — середній елемент схеми комунікації, " +
+                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.SITE, "www.bitcoin.com");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
+        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.EMAIL, "Email@support.com");
     }
 
     public static final CoinType DEFAULT_COIN = BitcoinMain.get();
@@ -150,11 +224,11 @@ public class Constants {
 
     public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
         navDrawerItemsSecond.clear();
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
-      //  NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
+        //  NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
 
-        }
+    }
 
 }
