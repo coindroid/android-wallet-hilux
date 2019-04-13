@@ -148,7 +148,6 @@ public class Constants {
         //---------------------------InfoBitcoinOne------------------------------
         COINS_BLOCK_INFO_BITCOINONE = new HashMap<>();
         COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.TITLE, "BitcoinOne");
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.LOGO, R.drawable.bitcoinone);
         COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
@@ -160,8 +159,6 @@ public class Constants {
 
         //---------------------------InfoBitcoin------------------------------
         COINS_BLOCK_INFO_BITCOIN = new HashMap<>();
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.TITLE, "Bitcoin");
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.LOGO, R.drawable.bitcoin);
         COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
@@ -173,8 +170,6 @@ public class Constants {
 
         //---------------------------InfoDash------------------------------
         COINS_BLOCK_INFO_DASH = new HashMap<>();
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.TITLE, "Dash");
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.LOGO, R.drawable.dash);
         COINS_BLOCK_INFO_DASH.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_DASH.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_DASH.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
@@ -186,8 +181,6 @@ public class Constants {
 
         //---------------------------InfoDogeCoinPrivate------------------------------
         COINS_BLOCK_INFO_DOGECOINPRIVATE = new HashMap<>();
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.TITLE, "DogeCoin");
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.LOGO, R.drawable.dogecoinprivate);
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
@@ -199,8 +192,6 @@ public class Constants {
 
         //---------------------------InfoBitcoinTurboKoin------------------------------
         COINS_BLOCK_INFO_BITCOINTURBOKOIN = new HashMap<>();
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.TITLE, "TurboCoin");
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.LOGO, R.drawable.bitcointurbokoin);
         COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.PRICE, "1 BTC");
         COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.PRICE_DESCRIBE, "( 4000 USD )");
         COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.DESCRIBE, "Кар-кар Текст — середній елемент схеми комунікації, " +

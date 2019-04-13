@@ -102,8 +102,8 @@ public class InfoFragment extends WalletFragment {
     }
 
     private void fillInfoData(HashMap<CoinInfoData, Object> typeCoin) {
-        ivLogo.setImageDrawable(getResources().getDrawable((int)typeCoin.get(CoinInfoData.LOGO)));
-        tvTitle.setText(typeCoin.get(CoinInfoData.TITLE).toString());
+        ivLogo.setImageResource(Constants.COINS_ICONS.get(pocket.getCoinType()));
+        tvTitle.setText(pocket.getDescriptionOrCoinName());
         tvPrice.setText(typeCoin.get(CoinInfoData.PRICE).toString());
         tvPriceDescribe.setText(typeCoin.get(CoinInfoData.PRICE_DESCRIBE).toString());
         tvDescribe.setText(typeCoin.get(CoinInfoData.DESCRIBE).toString());
