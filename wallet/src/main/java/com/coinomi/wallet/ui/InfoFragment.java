@@ -1,7 +1,9 @@
 package com.coinomi.wallet.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -11,7 +13,6 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,8 +26,7 @@ import com.coinomi.wallet.Constants;
 import com.coinomi.wallet.ExchangeRatesProvider;
 import com.coinomi.wallet.R;
 import com.coinomi.wallet.WalletApplication;
-import com.coinomi.wallet.ui.info.CoinInfoData;
-import com.coinomi.wallet.ui.info.CoinType;
+import com.coinomi.wallet.ui.info.InfoAdapter;
 import com.coinomi.wallet.ui.widget.Amount;
 
 import com.coinomi.wallet.ExchangeRatesProvider.ExchangeRate;
@@ -37,11 +37,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.coinomi.wallet.Constants.exchangesName;
+import static com.coinomi.wallet.Constants.INFO_EXCHANGES;
+import static com.coinomi.wallet.Constants.INFO_SOCIAL;
 
 public class InfoFragment extends WalletFragment {
 
@@ -50,21 +52,24 @@ public class InfoFragment extends WalletFragment {
     private String accountId;
     private WalletApplication application;
     private ExchangeRate exchangeRate;
-    private ArrayAdapter<String> adapter;
     private com.coinomi.core.coins.CoinType type;
     private Configuration config;
     private Coin currentBalance;
 
-    @BindView(R.id.lvExchanges) ListView lvExchanges;
-    @BindView(R.id.ivLogo) ImageView ivLogo;
-    @BindView(R.id.accountBalance) Amount accountBalance;
-    @BindView(R.id.accountExchangedBalance) Amount accountExchangedBalance;
-    @BindView(R.id.tvTitle) TextView tvTitle;
-    @BindView(R.id.tvDescribe) TextView tvDescribe;
-    @BindView(R.id.tvTitleSite) TextView tvTitleSite;
-    @BindView(R.id.tvTitleTelegram) TextView tvTitleTelegram;
-    @BindView(R.id.tvTitleDiscord) TextView tvTitleDiscord;
-    @BindView(R.id.tvTitleEmail) TextView tvTitleEmail;
+    @BindView(R.id.lvExchanges)
+    ListView lvExchanges;
+    @BindView(R.id.lvSocial)
+    ListView lvSocial;
+    @BindView(R.id.ivLogo)
+    ImageView ivLogo;
+    @BindView(R.id.accountBalance)
+    Amount accountBalance;
+    @BindView(R.id.accountExchangedBalance)
+    Amount accountExchangedBalance;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
+    @BindView(R.id.tvDescribe)
+    TextView tvDescribe;
 
     private static final int UPDATE_VIEW = 1;
     private static final int WALLET_CHANGED = 0;
@@ -81,7 +86,6 @@ public class InfoFragment extends WalletFragment {
     }
 
     public InfoFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -108,42 +112,50 @@ public class InfoFragment extends WalletFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         setBinder(ButterKnife.bind(this, view));
-        setupAdapter(inflater);
+
+        setupExchangesAdapter(INFO_EXCHANGES.get(pocket.getCoinType()));
+        setupSocialAdapter(INFO_SOCIAL.get(pocket.getCoinType()));
+
         accountBalance.setSymbol(type.getSymbol());
         exchangeRate = ExchangeRatesProvider.getRate(
                 application.getApplicationContext(), type.getSymbol(), config.getExchangeCurrencyCode());
         updateBalance(pocket.getBalance());
-        chooseBlockInfoData();
+        fillInfoData();
         return view;
     }
 
-    private void chooseBlockInfoData() {
-        if (CoinType.BITCOIN.getValue().equals(pocket.getDescriptionOrCoinName())) {
-            fillInfoData(Constants.COINS_BLOCK_INFO_BITCOIN);
-        } else if (CoinType.DASH.getValue().equals(pocket.getDescriptionOrCoinName())) {
-            fillInfoData(Constants.COINS_BLOCK_INFO_DASH);
-        } else if (CoinType.BITCOIN_TURBO_COIN.getValue().equals(pocket.getDescriptionOrCoinName())) {
-            fillInfoData(Constants.COINS_BLOCK_INFO_BITCOINTURBOKOIN);
-        } else if (CoinType.BITCOIN_ONE.getValue().equals(pocket.getDescriptionOrCoinName())) {
-            fillInfoData(Constants.COINS_BLOCK_INFO_BITCOINONE);
-        } else if (CoinType.DOGECOIN_PRIVATE.getValue().equals(pocket.getDescriptionOrCoinName())) {
-            fillInfoData(Constants.COINS_BLOCK_INFO_DOGECOINPRIVATE);
-        }
-    }
-
-    private void fillInfoData(HashMap<CoinInfoData, Object> typeCoin) {
+    private void fillInfoData() {
         ivLogo.setImageResource(Constants.COINS_ICONS.get(pocket.getCoinType()));
         tvTitle.setText(pocket.getDescriptionOrCoinName());
-        tvDescribe.setText(typeCoin.get(CoinInfoData.DESCRIBE).toString());
-        tvTitleSite.setText(typeCoin.get(CoinInfoData.SITE).toString());
-        tvTitleTelegram.setText(typeCoin.get(CoinInfoData.TELEGRAM).toString());
-        tvTitleDiscord.setText(typeCoin.get(CoinInfoData.DISCORD).toString());
-        tvTitleEmail.setText(typeCoin.get(CoinInfoData.EMAIL).toString());
+        tvDescribe.setText(Constants.INFO_DESCRIBE.get(pocket.getCoinType()));
     }
 
-    private void setupAdapter(LayoutInflater inflater) {
-        adapter = new ArrayAdapter<>(inflater.getContext(), android.R.layout.simple_list_item_1, exchangesName);
+    private void setupExchangesAdapter(HashMap<String, String> exchanges) {
+        InfoAdapter adapter = new InfoAdapter(exchanges);
+        lvExchanges.addHeaderView(createHeader("EXCHANGES:"));
         lvExchanges.setAdapter(adapter);
+        lvExchanges.setOnItemClickListener((parent, view, position, id) -> {
+            String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(browserIntent);
+        });
+    }
+
+    private void setupSocialAdapter(HashMap<String, String> social) {
+        InfoAdapter adapter = new InfoAdapter(social);
+        lvSocial.addHeaderView(createHeader("SOCIAL:"));
+        lvSocial.setAdapter(adapter);
+        lvSocial.setOnItemClickListener((parent, view, position, id) -> {
+            String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(browserIntent);
+        });
+    }
+
+    View createHeader(String text) {
+        View v = getLayoutInflater().inflate(R.layout.info_adapter_item_header, null);
+        ((TextView) v.findViewById(R.id.tvTitleHeader)).setText(text);
+        return v;
     }
 
     @Override
@@ -177,11 +189,14 @@ public class InfoFragment extends WalletFragment {
         }
 
         @Override
-        public void onLoaderReset(final Loader<Cursor> loader) { }
+        public void onLoaderReset(final Loader<Cursor> loader) {
+        }
     };
 
     static class MyHandler extends WeakHandler<InfoFragment> {
-        public MyHandler(InfoFragment ref) { super(ref); }
+        public MyHandler(InfoFragment ref) {
+            super(ref);
+        }
 
         @Override
         protected void weakHandleMessage(InfoFragment ref, Message msg) {

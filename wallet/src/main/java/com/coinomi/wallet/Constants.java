@@ -13,7 +13,6 @@ import com.coinomi.core.coins.CoinType;
 import com.coinomi.core.network.CoinAddress;
 import com.coinomi.stratumj.ServerAddress;
 import com.coinomi.wallet.ui.NavDrawerItem;
-import com.coinomi.wallet.ui.info.CoinInfoData;
 import com.google.common.collect.ImmutableList;
 
 import java.nio.charset.Charset;
@@ -118,16 +117,24 @@ public class Constants {
 
     );
 
-    public static String[] exchangesName = { "CREX24", "BITFINEX", "HITBTC", "SUTHEXCAHNGE" };
-
     public static final HashMap<CoinType, Integer> COINS_ICONS;
     public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
 
-    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOINONE;
-    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOIN;
-    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_DASH;
-    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_DOGECOINPRIVATE;
-    public static final HashMap<CoinInfoData, Object> COINS_BLOCK_INFO_BITCOINTURBOKOIN;
+    public static final HashMap<CoinType, HashMap<String, String>> INFO_EXCHANGES;
+    public static final HashMap<String, String> INFO_EXCHANGES_DOGECOINPRIVATE;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINTURBOKOIN;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINONE;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOIN;
+    public static final HashMap<String, String> INFO_EXCHANGES_DASH;
+
+    public static final HashMap<CoinType, HashMap<String, String>> INFO_SOCIAL;
+    public static final HashMap<String, String> INFO_SOCIAL_DOGECOINPRIVATE;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOINTURBOKOIN;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOINONE;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOIN;
+    public static final HashMap<String, String> INFO_SOCIAL_DASH;
+
+    public static final HashMap<CoinType, String> INFO_DESCRIBE;
 
     static {
         COINS_ICONS = new HashMap<>();
@@ -138,57 +145,96 @@ public class Constants {
         COINS_ICONS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), R.drawable.bitcoin);
 
         COINS_BLOCK_EXPLORERS = new HashMap<>();
-
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_MAIN.getCoinType(), "https://blockchain.info/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DASH_MAIN.getCoinType(), "http://explorer.dashpay.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINONE_MAIN.getCoinType(), "http://explorer.bitcoinone.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "http://explorer.dogecoinprivate.dog/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "http://explorer.bitcointurbokoin.com/tx/%s");
 
-        //---------------------------InfoBitcoinOne------------------------------
-        COINS_BLOCK_INFO_BITCOINONE = new HashMap<>();
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
-                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.SITE, "www.bitcoin.com");
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
-        COINS_BLOCK_INFO_BITCOINONE.put(CoinInfoData.EMAIL, "Email@support.com");
+        //------------------------------------Info-Describe-----------------------------------------
+        INFO_DESCRIBE = new HashMap<>();
+        INFO_DESCRIBE.put(CoinID.BITCOIN_MAIN.getCoinType(), "BITCOIN");
+        INFO_DESCRIBE.put(CoinID.DASH_MAIN.getCoinType(), "DASH");
+        INFO_DESCRIBE.put(CoinID.BITCOINONE_MAIN.getCoinType(), "BITCOINONE");
+        INFO_DESCRIBE.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "BITCOINTURBOKOIN");
+        INFO_DESCRIBE.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "DOGECOINPRIVATE");
 
-        //---------------------------InfoBitcoin------------------------------
-        COINS_BLOCK_INFO_BITCOIN = new HashMap<>();
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
-                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.SITE, "www.bitcoin.com");
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
-        COINS_BLOCK_INFO_BITCOIN.put(CoinInfoData.EMAIL, "Email@support.com");
 
-        //---------------------------InfoDash------------------------------
-        COINS_BLOCK_INFO_DASH = new HashMap<>();
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
-                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.SITE, "www.bitcoin.com");
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
-        COINS_BLOCK_INFO_DASH.put(CoinInfoData.EMAIL, "Email@support.com");
+        //------------------------------------Info-Exchanges----------------------------------------
+        INFO_EXCHANGES_BITCOIN = new HashMap<>();
+        INFO_EXCHANGES_BITCOIN.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("BITFINEX", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("HITBTC", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("SUTHEXCAHNGE", "https://www.google.com/");
 
-        //---------------------------InfoDogeCoinPrivate------------------------------
-        COINS_BLOCK_INFO_DOGECOINPRIVATE = new HashMap<>();
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DESCRIBE, "Текст — середній елемент схеми комунікації, " +
-                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.SITE, "www.bitcoin.com");
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
-        COINS_BLOCK_INFO_DOGECOINPRIVATE.put(CoinInfoData.EMAIL, "Email@support.com");
+        INFO_EXCHANGES_BITCOINONE = new HashMap<>();
+        INFO_EXCHANGES_BITCOINONE.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("SUTHEXCAHNGE_2", "https://www.google.com/");
 
-        //---------------------------InfoBitcoinTurboKoin------------------------------
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN = new HashMap<>();
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.DESCRIBE, "Кар-кар Текст — середній елемент схеми комунікації, " +
-                "яку можна уявити у вигляді триелементної структури: автор (адресант) текст читач (адресат).");
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.SITE, "www.bitcoin.com");
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.TELEGRAM, "t.me/bitcoin" );
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.DISCORD, "Discord.com/PPR3");
-        COINS_BLOCK_INFO_BITCOINTURBOKOIN.put(CoinInfoData.EMAIL, "Email@support.com");
+        INFO_EXCHANGES_DASH = new HashMap<>();
+        INFO_EXCHANGES_DASH.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES_BITCOINTURBOKOIN = new HashMap<>();
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES_DOGECOINPRIVATE = new HashMap<>();
+        INFO_EXCHANGES_DOGECOINPRIVATE.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE .put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE .put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES = new HashMap<>();
+        INFO_EXCHANGES.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_EXCHANGES_BITCOIN);
+        INFO_EXCHANGES.put(CoinID.DASH_MAIN.getCoinType(), INFO_EXCHANGES_DASH);
+        INFO_EXCHANGES.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_EXCHANGES_BITCOINONE);
+        INFO_EXCHANGES.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_EXCHANGES_BITCOINTURBOKOIN);
+        INFO_EXCHANGES.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_EXCHANGES_DOGECOINPRIVATE);
+
+        //------------------------------------Info-Social-------------------------------------------
+        INFO_SOCIAL_BITCOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOIN.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_BITCOINONE = new HashMap<>();
+        INFO_SOCIAL_BITCOINONE.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_DASH = new HashMap<>();
+        INFO_SOCIAL_DASH.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_BITCOINTURBOKOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_DOGECOINPRIVATE = new HashMap<>();
+        INFO_SOCIAL_DOGECOINPRIVATE.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE .put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE .put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL = new HashMap<>();
+        INFO_SOCIAL.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOIN);
+        INFO_SOCIAL.put(CoinID.DASH_MAIN.getCoinType(), INFO_SOCIAL_DASH);
+        INFO_SOCIAL.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_SOCIAL_BITCOINONE);
+        INFO_SOCIAL.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOINTURBOKOIN);
+        INFO_SOCIAL.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_SOCIAL_DOGECOINPRIVATE);
     }
 
     public static final CoinType DEFAULT_COIN = BitcoinMain.get();

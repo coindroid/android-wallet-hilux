@@ -88,4 +88,6 @@
     <!-- QR code -->
     <color name="qr_code_normal_bg">#FFFFFF</color>
 
+    <color name="link_color">#0e469f</color>
+
 </resources>

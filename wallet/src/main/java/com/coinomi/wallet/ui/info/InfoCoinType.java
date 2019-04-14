@@ -1,6 +1,6 @@
 package com.coinomi.wallet.ui.info;
 
-public enum CoinType {
+public enum InfoCoinType {
     BITCOIN("Bitcoin"),
     DASH("Dash"),
     BITCOIN_TURBO_COIN("Bitcoin Turbo Koin"),
@@ -9,7 +9,7 @@ public enum CoinType {
 
     private final String value;
 
-    CoinType(String value) {
+    InfoCoinType(String value) {
         this.value = value;
     }
 
