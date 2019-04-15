@@ -46,6 +46,7 @@
     <string name="wallet_title_request">получить</string>
     <string name="wallet_title_balance">баланс</string>
     <string name="wallet_title_send">отправить</string>
+    <string name="wallet_title_info">информация</string>
     <string name="wallet_locked_message">Ваш кошелёк заблокирован</string>
     <string name="unlock_wallet_title">Разблокировать Ваш кошелёк</string>
     <string name="unlocking_wallet_working">Ваш кошелёк разблокируется&#8230;</string>

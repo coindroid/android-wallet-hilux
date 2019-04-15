@@ -20,9 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_LINK;
-import static com.coinomi.wallet.ui.NavDrawerItemType.ITEM_SECTION_TITLE;
-
 /**
  * @author John L. Jegutanis
  * @author Andreas Schildbach
@@ -78,7 +75,9 @@ public class Constants {
 
     public static final long RATE_UPDATE_FREQ_MS = 30 * DateUtils.SECOND_IN_MILLIS;
 
-    /** Default currency to use if all default mechanisms fail. */
+    /**
+     * Default currency to use if all default mechanisms fail.
+     */
     public static final String DEFAULT_EXCHANGE_CURRENCY = "USD";
 
     public static final Charset UTF_8 = Charset.forName("UTF-8");
@@ -98,13 +97,13 @@ public class Constants {
     public static final String PARTNERS_URI = "https://www.b_one_payment.iopartner.json";
     public static final String SUPPORT_EMAIL = "support@bonepayment.com";
 
- // TODO move to resource files
+    // TODO move to resource files
     public static final List<CoinAddress> DEFAULT_COINS_SERVERS = ImmutableList.of(
-            new CoinAddress(BitcoinMain.get(),      new ServerAddress("btc-cce-1.coinomi.net", 5001),
+            new CoinAddress(BitcoinMain.get(), new ServerAddress("btc-cce-1.coinomi.net", 5001),
                     new ServerAddress("btc-cce-2.coinomi.net", 5001)),
 
 
-            new CoinAddress(DashMain.get(),         new ServerAddress("drk-cce-1.coinomi.net", 5013),
+            new CoinAddress(DashMain.get(), new ServerAddress("drk-cce-1.coinomi.net", 5013),
                     new ServerAddress("drk-cce-2.coinomi.net", 5013)),
 
             new CoinAddress(BitcoinoneMain.get(), new ServerAddress("45.32.237.148", 9100),
@@ -120,6 +119,23 @@ public class Constants {
 
     public static final HashMap<CoinType, Integer> COINS_ICONS;
     public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
+
+    public static final HashMap<CoinType, HashMap<String, String>> INFO_EXCHANGES;
+    public static final HashMap<String, String> INFO_EXCHANGES_DOGECOINPRIVATE;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINTURBOKOIN;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINONE;
+    public static final HashMap<String, String> INFO_EXCHANGES_BITCOIN;
+    public static final HashMap<String, String> INFO_EXCHANGES_DASH;
+
+    public static final HashMap<CoinType, HashMap<String, String>> INFO_SOCIAL;
+    public static final HashMap<String, String> INFO_SOCIAL_DOGECOINPRIVATE;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOINTURBOKOIN;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOINONE;
+    public static final HashMap<String, String> INFO_SOCIAL_BITCOIN;
+    public static final HashMap<String, String> INFO_SOCIAL_DASH;
+
+    public static final HashMap<CoinType, String> INFO_DESCRIBE;
+
     static {
         COINS_ICONS = new HashMap<>();
         COINS_ICONS.put(CoinID.BITCOINONE_MAIN.getCoinType(), R.drawable.bitcoinone);
@@ -129,12 +145,96 @@ public class Constants {
         COINS_ICONS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), R.drawable.bitcointurbokoin);
 
         COINS_BLOCK_EXPLORERS = new HashMap<>();
-
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_MAIN.getCoinType(), "https://blockchain.info/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DASH_MAIN.getCoinType(), "http://explorer.dashpay.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINONE_MAIN.getCoinType(), "http://explorer.bitcoinone.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "http://explorer.dogecoinprivate.dog/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "http://explorer.bitcointurbokoin.com/tx/%s");
+
+        //------------------------------------Info-Describe-----------------------------------------
+        INFO_DESCRIBE = new HashMap<>();
+        INFO_DESCRIBE.put(CoinID.BITCOIN_MAIN.getCoinType(), "BITCOIN");
+        INFO_DESCRIBE.put(CoinID.DASH_MAIN.getCoinType(), "DASH");
+        INFO_DESCRIBE.put(CoinID.BITCOINONE_MAIN.getCoinType(), "BITCOINONE");
+        INFO_DESCRIBE.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "BITCOINTURBOKOIN");
+        INFO_DESCRIBE.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), "DOGECOINPRIVATE");
+
+
+        //------------------------------------Info-Exchanges----------------------------------------
+        INFO_EXCHANGES_BITCOIN = new HashMap<>();
+        INFO_EXCHANGES_BITCOIN.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("BITFINEX", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("HITBTC", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOIN.put("SUTHEXCAHNGE", "https://www.google.com/");
+
+        INFO_EXCHANGES_BITCOINONE = new HashMap<>();
+        INFO_EXCHANGES_BITCOINONE.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINONE.put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES_DASH = new HashMap<>();
+        INFO_EXCHANGES_DASH.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_DASH.put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES_BITCOINTURBOKOIN = new HashMap<>();
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_BITCOINTURBOKOIN.put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES_DOGECOINPRIVATE = new HashMap<>();
+        INFO_EXCHANGES_DOGECOINPRIVATE.put("CREX24_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE.put("BITFINEX_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE .put("HITBTC_2", "https://www.google.com/");
+        INFO_EXCHANGES_DOGECOINPRIVATE .put("SUTHEXCAHNGE_2", "https://www.google.com/");
+
+        INFO_EXCHANGES = new HashMap<>();
+        INFO_EXCHANGES.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_EXCHANGES_BITCOIN);
+        INFO_EXCHANGES.put(CoinID.DASH_MAIN.getCoinType(), INFO_EXCHANGES_DASH);
+        INFO_EXCHANGES.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_EXCHANGES_BITCOINONE);
+        INFO_EXCHANGES.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_EXCHANGES_BITCOINTURBOKOIN);
+        INFO_EXCHANGES.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_EXCHANGES_DOGECOINPRIVATE);
+
+        //------------------------------------Info-Social-------------------------------------------
+        INFO_SOCIAL_BITCOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOIN.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOIN.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_BITCOINONE = new HashMap<>();
+        INFO_SOCIAL_BITCOINONE.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINONE.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_DASH = new HashMap<>();
+        INFO_SOCIAL_DASH.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_DASH.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_BITCOINTURBOKOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_BITCOINTURBOKOIN.put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL_DOGECOINPRIVATE = new HashMap<>();
+        INFO_SOCIAL_DOGECOINPRIVATE.put("www.bitcoin.com", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE.put("t.me/bitcoin", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE .put("Discord.com/PPR3", "https://www.google.com/");
+        INFO_SOCIAL_DOGECOINPRIVATE .put("Email@support.com", "https://www.google.com/");
+
+        INFO_SOCIAL = new HashMap<>();
+        INFO_SOCIAL.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOIN);
+        INFO_SOCIAL.put(CoinID.DASH_MAIN.getCoinType(), INFO_SOCIAL_DASH);
+        INFO_SOCIAL.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_SOCIAL_BITCOINONE);
+        INFO_SOCIAL.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOINTURBOKOIN);
+        INFO_SOCIAL.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_SOCIAL_DOGECOINPRIVATE);
     }
 
     public static final CoinType DEFAULT_COIN = BitcoinMain.get();
@@ -150,11 +250,11 @@ public class Constants {
 
     public static void createNavDrawerItemsSecond(List<NavDrawerItem> navDrawerItemsSecond) {
         navDrawerItemsSecond.clear();
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
-     //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
-      //  NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_SECTION_TITLE, "Buy & Exchange");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "CryptoBridge", R.drawable.cryptobridge_logo, "https://wallet.crypto-bridge.org/market/BRIDGE.HLX_BRIDGE.BTC");
+        //   NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Escodex", R.drawable.escodex_logo, "https://wallet.escodex.com/market/ESCODEX.HLX_ESCODEX.BTC");
+        //  NavDrawerItem.addItem(navDrawerItemsSecond, ITEM_LINK, "Discord", R.drawable.discord_logo, "https://discord.gg/sQfYNbT");
 
-        }
+    }
 
 }

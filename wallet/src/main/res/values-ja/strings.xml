@@ -305,4 +305,5 @@
     <string name="account_private_key_label">秘密鍵</string>
     <string name="account_extended_private_key_label">拡張秘密鍵</string>
     <string name="account_private_key_warning">秘密鍵があればこのアカウントからコインを送金できます。この鍵は<i>復元フレーズ</i>から計算することができますので、この鍵をバックアップする必要はありません。</string>
+    <string name="wallet_title_info">情報</string>
 </resources>
