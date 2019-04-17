@@ -44,7 +44,7 @@ public class AccountFragment extends BaseFragment {
     private static final Logger log = LoggerFactory.getLogger(AccountFragment.class);
 
     private static final String ACCOUNT_CURRENT_SCREEN = "account_current_screen";
-    private static final int NUM_OF_SCREEN_WITHOUT_INFO = 3;
+    private static final int NUM_OF_SCREEN_WITHOUT_INFO = 4;
     private static final int NUM_OF_SCREEN_WITH_INFO = 4;
     // Set offscreen page limit to 2 because receive fragment draws a QR code and we don't
     // want to re-render that if we go to the SendFragment and back

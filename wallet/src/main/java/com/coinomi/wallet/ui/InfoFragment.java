@@ -126,8 +126,8 @@ public class InfoFragment extends WalletFragment {
 
     private void fillInfoData() {
         ivLogo.setImageResource(Constants.COINS_ICONS.get(pocket.getCoinType()));
-        tvTitle.setText(pocket.getDescriptionOrCoinName());
-        tvDescribe.setText(Constants.INFO_DESCRIBE.get(pocket.getCoinType()));
+        tvTitle.setText(pocket.getDescriptionOrCoinName().toUpperCase());
+        tvDescribe.setText(getResources().getString(Constants.INFO_DESCRIBE.get(pocket.getCoinType())));
     }
 
     private void setupExchangesAdapter(HashMap<String, String> exchanges) {
