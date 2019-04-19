@@ -104,7 +104,8 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:paddingTop="14dp"
-            android:text="@string/about_licence" />
+            android:text="@string/about_licence"
+            android:visibility="gone" />
 
         <TextView
             style="@style/NormalText"

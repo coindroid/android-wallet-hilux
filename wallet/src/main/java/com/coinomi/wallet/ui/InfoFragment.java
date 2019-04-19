@@ -132,7 +132,7 @@ public class InfoFragment extends WalletFragment {
 
     private void setupExchangesAdapter(HashMap<String, String> exchanges) {
         InfoAdapter adapter = new InfoAdapter(exchanges);
-        lvExchanges.addHeaderView(createHeader("EXCHANGES:"));
+        lvExchanges.addHeaderView(createHeaderExchanges("EXCHANGES:", "COINMARKETCAP:"));
         lvExchanges.setAdapter(adapter);
         lvExchanges.setOnItemClickListener((parent, view, position, id) -> {
             String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
@@ -143,7 +143,7 @@ public class InfoFragment extends WalletFragment {
 
     private void setupSocialAdapter(HashMap<String, String> social) {
         InfoAdapter adapter = new InfoAdapter(social);
-        lvSocial.addHeaderView(createHeader("SOCIAL:"));
+        lvSocial.addHeaderView(createHeaderSocial("SOCIAL:"));
         lvSocial.setAdapter(adapter);
         lvSocial.setOnItemClickListener((parent, view, position, id) -> {
             String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
@@ -152,9 +152,17 @@ public class InfoFragment extends WalletFragment {
         });
     }
 
-    View createHeader(String text) {
+    View createHeaderSocial(String text) {
         View v = getLayoutInflater().inflate(R.layout.info_adapter_item_header, null);
         ((TextView) v.findViewById(R.id.tvTitleHeader)).setText(text);
+        v.findViewById(R.id.tvTitleHeader2).setVisibility(View.GONE);
+        return v;
+    }
+
+    View createHeaderExchanges(String text, String text2) {
+        View v = getLayoutInflater().inflate(R.layout.info_adapter_item_header, null);
+        ((TextView) v.findViewById(R.id.tvTitleHeader)).setText(text);
+        ((TextView) v.findViewById(R.id.tvTitleHeader2)).setText(text2);
         return v;
     }
 

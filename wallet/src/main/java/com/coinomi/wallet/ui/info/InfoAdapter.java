@@ -51,8 +51,8 @@ public class InfoAdapter extends BaseAdapter {
         Map.Entry<String, String> item = getItem(position);
 
         // TODO replace findViewById by ViewHolder
-        SpannableString content = new SpannableString(item.getKey());
-        content.setSpan(new UnderlineSpan(), 0, item.getKey().length(), 0);
+        SpannableString content = new SpannableString(item.getValue());
+        content.setSpan(new UnderlineSpan(), 0, item.getValue().length(), 0);
 
         ((TextView) result.findViewById(android.R.id.text1)).setText(content);
         return result;
