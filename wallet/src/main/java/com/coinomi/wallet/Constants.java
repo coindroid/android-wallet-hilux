@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableList;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -117,34 +118,41 @@ public class Constants {
 
     );
 
-    public static final HashMap<CoinType, Integer> COINS_ICONS;
-    public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
+    public static final LinkedHashMap<CoinType, Integer> COINS_ICONS;
+    public static final LinkedHashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
 
-    public static final HashMap<CoinType, HashMap<String, String>> INFO_EXCHANGES;
-    public static final HashMap<String, String> INFO_EXCHANGES_DOGECOINPRIVATE;
-    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINTURBOKOIN;
-    public static final HashMap<String, String> INFO_EXCHANGES_BITCOINONE;
-    public static final HashMap<String, String> INFO_EXCHANGES_BITCOIN;
-    public static final HashMap<String, String> INFO_EXCHANGES_DASH;
+    public static final LinkedHashMap<CoinType, HashMap<String, String>> INFO_EXCHANGES;
+    public static final LinkedHashMap<String, String> INFO_EXCHANGES_DOGECOINPRIVATE;
+    public static final LinkedHashMap<String, String> INFO_EXCHANGES_BITCOINTURBOKOIN;
+    public static final LinkedHashMap<String, String> INFO_EXCHANGES_BITCOINONE;
+    public static final LinkedHashMap<String, String> INFO_EXCHANGES_BITCOIN;
+    public static final LinkedHashMap<String, String> INFO_EXCHANGES_DASH;
 
-    public static final HashMap<CoinType, HashMap<String, String>> INFO_SOCIAL;
-    public static final HashMap<String, String> INFO_SOCIAL_DOGECOINPRIVATE;
-    public static final HashMap<String, String> INFO_SOCIAL_BITCOINTURBOKOIN;
-    public static final HashMap<String, String> INFO_SOCIAL_BITCOINONE;
-    public static final HashMap<String, String> INFO_SOCIAL_BITCOIN;
-    public static final HashMap<String, String> INFO_SOCIAL_DASH;
+    public static final LinkedHashMap<CoinType, HashMap<String, String>> INFO_SOCIAL;
+    public static final LinkedHashMap<String, String> INFO_SOCIAL_DOGECOINPRIVATE;
+    public static final LinkedHashMap<String, String> INFO_SOCIAL_BITCOINTURBOKOIN;
+    public static final LinkedHashMap<String, String> INFO_SOCIAL_BITCOINONE;
+    public static final LinkedHashMap<String, String> INFO_SOCIAL_BITCOIN;
+    public static final LinkedHashMap<String, String> INFO_SOCIAL_DASH;
 
-    public static final HashMap<CoinType, Integer> INFO_DESCRIBE;
+    public static final LinkedHashMap<CoinType, HashMap<String, String>> INFO_MARKETCAP;
+    public static final LinkedHashMap<String, String> INFO_MARKETCAP_DOGECOINPRIVATE;
+    public static final LinkedHashMap<String, String> INFO_MARKETCAP_BITCOINTURBOKOIN;
+    public static final LinkedHashMap<String, String> INFO_MARKETCAP_BITCOINONE;
+    public static final LinkedHashMap<String, String> INFO_MARKETCAP_BITCOIN;
+    public static final LinkedHashMap<String, String> INFO_MARKETCAP_DASH;
+
+    public static final LinkedHashMap<CoinType, Integer> INFO_DESCRIBE;
 
     static {
-        COINS_ICONS = new HashMap<>();
+        COINS_ICONS = new LinkedHashMap<>();
         COINS_ICONS.put(CoinID.BITCOINONE_MAIN.getCoinType(), R.drawable.bitcoinone);
         COINS_ICONS.put(CoinID.BITCOIN_MAIN.getCoinType(), R.drawable.bitcoin);
         COINS_ICONS.put(CoinID.DASH_MAIN.getCoinType(), R.drawable.dash);
         COINS_ICONS.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), R.drawable.dogecoinprivate);
         COINS_ICONS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), R.drawable.bitcointurbokoin);
 
-        COINS_BLOCK_EXPLORERS = new HashMap<>();
+        COINS_BLOCK_EXPLORERS = new LinkedHashMap<>();
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_MAIN.getCoinType(), "https://blockchain.info/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DASH_MAIN.getCoinType(), "http://explorer.dashpay.io/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINONE_MAIN.getCoinType(), "http://explorer.bitcoinone.io/tx/%s");
@@ -152,7 +160,7 @@ public class Constants {
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), "http://explorer.bitcointurbokoin.com/tx/%s");
 
         //------------------------------------Info-Describe-----------------------------------------
-        INFO_DESCRIBE = new HashMap<>();
+        INFO_DESCRIBE = new LinkedHashMap<>();
         INFO_DESCRIBE.put(CoinID.BITCOIN_MAIN.getCoinType(), R.string.info_describe_bitcoin);
         INFO_DESCRIBE.put(CoinID.DASH_MAIN.getCoinType(), R.string.info_describe_dash);
         INFO_DESCRIBE.put(CoinID.BITCOINONE_MAIN.getCoinType(), R.string.info_describe_bitcoinone);
@@ -161,42 +169,37 @@ public class Constants {
 
 
         //------------------------------------Info-Exchanges----------------------------------------
-        INFO_EXCHANGES_BITCOIN = new HashMap<>();
-        INFO_EXCHANGES_BITCOIN.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin/#markets");
+        INFO_EXCHANGES_BITCOIN = new LinkedHashMap<>();
         INFO_EXCHANGES_BITCOIN.put("BINANCE", "https://www.binance.com");
         INFO_EXCHANGES_BITCOIN.put("BITTREX", "https://www.bittrex.com");
         INFO_EXCHANGES_BITCOIN.put("COINBASE", "https://www.coinbase.com");
 
-        INFO_EXCHANGES_BITCOINONE = new HashMap<>();
-        INFO_EXCHANGES_BITCOINONE.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin-one/#markets");
+        INFO_EXCHANGES_BITCOINONE = new LinkedHashMap<>();
         INFO_EXCHANGES_BITCOINONE.put("STEX", "https://app.stex.com/en/basic-trade/pair/BTC/BTCONE/1D");
         INFO_EXCHANGES_BITCOINONE.put("GRAVIEX", "https://graviex.net/markets/btconebtc");
         INFO_EXCHANGES_BITCOINONE.put("ESCODEX", "https://wallet.escodex.com/market/ESCODEX.BTCONE_ESCODEX.BTC");
         INFO_EXCHANGES_BITCOINONE.put("FINEXBOX", "https://www.finexbox.com/market/pair/BTCONE-BTC.html");
         INFO_EXCHANGES_BITCOINONE.put("ALTILLY", "https://www.altilly.com/market/BTCONE_BTC");
 
-        INFO_EXCHANGES_DASH = new HashMap<>();
-        INFO_EXCHANGES_DASH.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/dash/#markets");
+        INFO_EXCHANGES_DASH = new LinkedHashMap<>();
         INFO_EXCHANGES_DASH.put("BINANCE", "https://www.binance.com");
         INFO_EXCHANGES_DASH.put("BITTREX", "https://www.bittrex.com");
 
-        INFO_EXCHANGES_BITCOINTURBOKOIN = new HashMap<>();
-        INFO_EXCHANGES_BITCOINTURBOKOIN.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin-token/#markets");
+        INFO_EXCHANGES_BITCOINTURBOKOIN = new LinkedHashMap<>();
         INFO_EXCHANGES_BITCOINTURBOKOIN.put("CREX24", "https://crex24.com/exchange/BTK-BTC");
         INFO_EXCHANGES_BITCOINTURBOKOIN.put("STEX", "https://app.stex.com/en/trade/pair/LTC/BTK/1D");
         INFO_EXCHANGES_BITCOINTURBOKOIN.put("MERCATOX BTC", "https://mercatox.com/exchange/BTK/BTC");
         INFO_EXCHANGES_BITCOINTURBOKOIN.put("MERCATOX ETH", "https://mercatox.com/exchange/BTK/ETH");
         INFO_EXCHANGES_BITCOINTURBOKOIN.put("COINDEAL", "https://frontend.coindeal.com/market/trade.html?pair=BTK/XRP");
 
-        INFO_EXCHANGES_DOGECOINPRIVATE = new HashMap<>();
-        INFO_EXCHANGES_DOGECOINPRIVATE.put("COINGECKO", "https://www.coingecko.com/en/coins/dogecoin-private/trading_exchanges");
+        INFO_EXCHANGES_DOGECOINPRIVATE = new LinkedHashMap<>();
         INFO_EXCHANGES_DOGECOINPRIVATE.put("NOVAEXCHANGE", "https://novaexchange.com/market/BTC_DOGP");
         INFO_EXCHANGES_DOGECOINPRIVATE.put("ESCODEX", "https://wallet.escodex.com/market/ESCODEX.DOGP_ESCODEX.BTC");
         INFO_EXCHANGES_DOGECOINPRIVATE.put("ALTILLY", "https://www.altilly.com/market/DOGP_DOGE");
         INFO_EXCHANGES_DOGECOINPRIVATE.put("WADAX", "https://wadax.io/trade/DOGPBTC");
         INFO_EXCHANGES_DOGECOINPRIVATE.put("ENMANET", "https://www.enmanet.com/market/BTC-DOGP");
 
-        INFO_EXCHANGES = new HashMap<>();
+        INFO_EXCHANGES = new LinkedHashMap<>();
         INFO_EXCHANGES.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_EXCHANGES_BITCOIN);
         INFO_EXCHANGES.put(CoinID.DASH_MAIN.getCoinType(), INFO_EXCHANGES_DASH);
         INFO_EXCHANGES.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_EXCHANGES_BITCOINONE);
@@ -204,35 +207,59 @@ public class Constants {
         INFO_EXCHANGES.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_EXCHANGES_DOGECOINPRIVATE);
 
         //------------------------------------Info-Social-------------------------------------------
-        INFO_SOCIAL_BITCOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOIN = new LinkedHashMap<>();
         INFO_SOCIAL_BITCOIN.put("WEBSITE", "https://en.wikipedia.org/wiki/Bitcoin");
 
-        INFO_SOCIAL_BITCOINONE = new HashMap<>();
+        INFO_SOCIAL_BITCOINONE = new LinkedHashMap<>();
         INFO_SOCIAL_BITCOINONE.put("WEBSITE", "https://www.bitcoinone.io");
         INFO_SOCIAL_BITCOINONE.put("TWITTER", "https://www.twitter.com/thebitcoinone");
         INFO_SOCIAL_BITCOINONE.put("DISCORD", "https://t.me/THEBitCoinONE");
 
-        INFO_SOCIAL_DASH = new HashMap<>();
+        INFO_SOCIAL_DASH = new LinkedHashMap<>();
         INFO_SOCIAL_DASH.put("WEBSITE", "https://www.dash.org");
         INFO_SOCIAL_DASH.put("TWITTER", "https://twitter.com/Dashpay");
         INFO_SOCIAL_DASH.put("DISCORD", "https://discord.gg/da4UEsq");
 
-        INFO_SOCIAL_BITCOINTURBOKOIN = new HashMap<>();
+        INFO_SOCIAL_BITCOINTURBOKOIN = new LinkedHashMap<>();
         INFO_SOCIAL_BITCOINTURBOKOIN.put("WEBSITE", "https://www.bitcointurbokoin.com");
         INFO_SOCIAL_BITCOINTURBOKOIN.put("TWITTER", "https://twitter.com/bitcoin_token");
         INFO_SOCIAL_BITCOINTURBOKOIN.put("DISCORD", "https://t.me/bitcointurbokoin");
 
-        INFO_SOCIAL_DOGECOINPRIVATE = new HashMap<>();
+        INFO_SOCIAL_DOGECOINPRIVATE = new LinkedHashMap<>();
         INFO_SOCIAL_DOGECOINPRIVATE.put("WEBSITE", "https://www.dogecoinprivate.dog");
         INFO_SOCIAL_DOGECOINPRIVATE.put("TWITTER", "https://twitter.com/PrivateDOGP");
         INFO_SOCIAL_DOGECOINPRIVATE.put("DISCORD", "https://discord.gg/8u2TVCZ");
 
-        INFO_SOCIAL = new HashMap<>();
+        INFO_SOCIAL = new LinkedHashMap<>();
         INFO_SOCIAL.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOIN);
         INFO_SOCIAL.put(CoinID.DASH_MAIN.getCoinType(), INFO_SOCIAL_DASH);
         INFO_SOCIAL.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_SOCIAL_BITCOINONE);
         INFO_SOCIAL.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_SOCIAL_BITCOINTURBOKOIN);
         INFO_SOCIAL.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_SOCIAL_DOGECOINPRIVATE);
+
+        //------------------------------------Info-Marketcap----------------------------------------
+
+        INFO_MARKETCAP_BITCOIN = new LinkedHashMap<>();
+        INFO_MARKETCAP_BITCOIN.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin/#markets");
+
+        INFO_MARKETCAP_BITCOINONE = new LinkedHashMap<>();
+        INFO_MARKETCAP_BITCOINONE.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin-one/#markets");
+
+        INFO_MARKETCAP_DASH = new LinkedHashMap<>();
+        INFO_MARKETCAP_DASH.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/dash/#markets");
+
+        INFO_MARKETCAP_BITCOINTURBOKOIN = new LinkedHashMap<>();
+        INFO_MARKETCAP_BITCOINTURBOKOIN.put("COINMARKETCAP", "https://coinmarketcap.com/currencies/bitcoin-token/#markets");
+
+        INFO_MARKETCAP_DOGECOINPRIVATE = new LinkedHashMap<>();
+        INFO_MARKETCAP_DOGECOINPRIVATE.put("COINGECKO", "https://www.coingecko.com/en/coins/dogecoin-private/trading_exchanges");
+
+        INFO_MARKETCAP = new LinkedHashMap<>();
+        INFO_MARKETCAP.put(CoinID.BITCOIN_MAIN.getCoinType(), INFO_MARKETCAP_BITCOIN);
+        INFO_MARKETCAP.put(CoinID.DASH_MAIN.getCoinType(), INFO_MARKETCAP_DASH);
+        INFO_MARKETCAP.put(CoinID.BITCOINONE_MAIN.getCoinType(), INFO_MARKETCAP_BITCOINONE);
+        INFO_MARKETCAP.put(CoinID.BITCOINTURBOKOIN_MAIN.getCoinType(), INFO_MARKETCAP_BITCOINTURBOKOIN);
+        INFO_MARKETCAP.put(CoinID.DOGECOINPRIVATE_MAIN.getCoinType(), INFO_MARKETCAP_DOGECOINPRIVATE);
     }
 
     public static final CoinType DEFAULT_COIN = BitcoinMain.get();

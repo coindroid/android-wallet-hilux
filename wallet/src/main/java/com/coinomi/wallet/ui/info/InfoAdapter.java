@@ -51,10 +51,10 @@ public class InfoAdapter extends BaseAdapter {
         Map.Entry<String, String> item = getItem(position);
 
         // TODO replace findViewById by ViewHolder
-        SpannableString content = new SpannableString(item.getValue());
-        content.setSpan(new UnderlineSpan(), 0, item.getValue().length(), 0);
+        SpannableString contentKey = new SpannableString(item.getKey());
+        contentKey.setSpan(new UnderlineSpan(), 0, item.getKey().length(), 0);
 
-        ((TextView) result.findViewById(android.R.id.text1)).setText(content);
+        ((TextView) result.findViewById(android.R.id.text1)).setText(contentKey);
         return result;
     }
 }

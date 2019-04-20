@@ -61,11 +61,11 @@
         <TextView
             android:id="@+id/tvDescribe"
             android:layout_width="0dp"
-            android:minHeight="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:minHeight="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="2"
@@ -75,26 +75,37 @@
 
         <ListView
             android:id="@+id/lvSocial"
-            android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_weight="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/accountExchangedBalance" />
 
         <ListView
-            android:id="@+id/lvExchanges"
+            android:id="@+id/lvMarketCap"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvSocial" />
+
+        <ListView
+            android:id="@+id/lvExchanges"
+            android:layout_width="match_parent"
+            android:layout_height="234dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lvMarketCap" />
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

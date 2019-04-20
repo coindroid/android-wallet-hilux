@@ -43,6 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.coinomi.wallet.Constants.INFO_EXCHANGES;
+import static com.coinomi.wallet.Constants.INFO_MARKETCAP;
 import static com.coinomi.wallet.Constants.INFO_SOCIAL;
 
 public class InfoFragment extends WalletFragment {
@@ -56,10 +57,12 @@ public class InfoFragment extends WalletFragment {
     private Configuration config;
     private Coin currentBalance;
 
-    @BindView(R.id.lvExchanges)
-    ListView lvExchanges;
     @BindView(R.id.lvSocial)
     ListView lvSocial;
+    @BindView(R.id.lvMarketCap)
+    ListView lvMarketCap;
+    @BindView(R.id.lvExchanges)
+    ListView lvExchanges;
     @BindView(R.id.ivLogo)
     ImageView ivLogo;
     @BindView(R.id.accountBalance)
@@ -113,8 +116,9 @@ public class InfoFragment extends WalletFragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         setBinder(ButterKnife.bind(this, view));
 
-        setupExchangesAdapter(INFO_EXCHANGES.get(pocket.getCoinType()));
         setupSocialAdapter(INFO_SOCIAL.get(pocket.getCoinType()));
+        setupMarketCapAdapter(INFO_MARKETCAP.get(pocket.getCoinType()));
+        setupExchangesAdapter(INFO_EXCHANGES.get(pocket.getCoinType()));
 
         accountBalance.setSymbol(type.getSymbol());
         exchangeRate = ExchangeRatesProvider.getRate(
@@ -130,20 +134,9 @@ public class InfoFragment extends WalletFragment {
         tvDescribe.setText(getResources().getString(Constants.INFO_DESCRIBE.get(pocket.getCoinType())));
     }
 
-    private void setupExchangesAdapter(HashMap<String, String> exchanges) {
-        InfoAdapter adapter = new InfoAdapter(exchanges);
-        lvExchanges.addHeaderView(createHeaderExchanges("EXCHANGES:", "COINMARKETCAP:"));
-        lvExchanges.setAdapter(adapter);
-        lvExchanges.setOnItemClickListener((parent, view, position, id) -> {
-            String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            startActivity(browserIntent);
-        });
-    }
-
     private void setupSocialAdapter(HashMap<String, String> social) {
         InfoAdapter adapter = new InfoAdapter(social);
-        lvSocial.addHeaderView(createHeaderSocial("SOCIAL:"));
+        lvSocial.addHeaderView(createHeader("SOCIAL:"));
         lvSocial.setAdapter(adapter);
         lvSocial.setOnItemClickListener((parent, view, position, id) -> {
             String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
@@ -152,17 +145,31 @@ public class InfoFragment extends WalletFragment {
         });
     }
 
-    View createHeaderSocial(String text) {
-        View v = getLayoutInflater().inflate(R.layout.info_adapter_item_header, null);
-        ((TextView) v.findViewById(R.id.tvTitleHeader)).setText(text);
-        v.findViewById(R.id.tvTitleHeader2).setVisibility(View.GONE);
-        return v;
+    private void setupMarketCapAdapter(HashMap<String, String> marketCap) {
+        InfoAdapter adapter = new InfoAdapter(marketCap);
+        lvMarketCap.addHeaderView(createHeader("MARKETCAP:"));
+        lvMarketCap.setAdapter(adapter);
+        lvMarketCap.setOnItemClickListener((parent, view, position, id) -> {
+            String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(browserIntent);
+        });
     }
 
-    View createHeaderExchanges(String text, String text2) {
+    private void setupExchangesAdapter(HashMap<String, String> exchanges) {
+        InfoAdapter adapter = new InfoAdapter(exchanges);
+        lvExchanges.addHeaderView(createHeader("EXCHANGES:"));
+        lvExchanges.setAdapter(adapter);
+        lvExchanges.setOnItemClickListener((parent, view, position, id) -> {
+            String uri = (String) ((Map.Entry) parent.getAdapter().getItem(position)).getValue();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(browserIntent);
+        });
+    }
+
+    View createHeader(String text) {
         View v = getLayoutInflater().inflate(R.layout.info_adapter_item_header, null);
         ((TextView) v.findViewById(R.id.tvTitleHeader)).setText(text);
-        ((TextView) v.findViewById(R.id.tvTitleHeader2)).setText(text2);
         return v;
     }
 
