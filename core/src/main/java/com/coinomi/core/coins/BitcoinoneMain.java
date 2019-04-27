@@ -22,6 +22,7 @@ public class BitcoinoneMain extends BitFamily {
         uriScheme = "bitcoinone";
         bip44Index = 5;
         unitExponent = 8;
+
         feeValue = value(100000);
         minNonDust = value(1000); // 0.00001 DASH mininput
         softDustLimit = value(5000); // 0.001 DASH

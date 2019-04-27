@@ -19,7 +19,9 @@ public class InfoAdapter extends BaseAdapter {
 
     public InfoAdapter(Map<String, String> map) {
         mData = new ArrayList();
-        mData.addAll(map.entrySet());
+        if(map != null) {
+            mData.addAll(map.entrySet());
+        }
     }
 
     @Override

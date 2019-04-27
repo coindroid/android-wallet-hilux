@@ -19,8 +19,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coinomi.core.coins.Value;
+import com.coinomi.core.network.AddressStatus;
+import com.coinomi.core.network.BlockHeader;
+import com.coinomi.core.network.ServerClient;
+import com.coinomi.core.network.interfaces.TransactionEventListener;
 import com.coinomi.core.util.GenericUtils;
 import com.coinomi.core.wallet.WalletAccount;
+import com.coinomi.core.wallet.families.nxt.NxtTransaction;
 import com.coinomi.wallet.Configuration;
 import com.coinomi.wallet.Constants;
 import com.coinomi.wallet.ExchangeRatesProvider;
@@ -33,11 +38,14 @@ import com.coinomi.wallet.ExchangeRatesProvider.ExchangeRate;
 import com.coinomi.wallet.util.WeakHandler;
 
 import org.bitcoinj.core.Coin;
+import org.bitcoinj.utils.Threading;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +54,7 @@ import static com.coinomi.wallet.Constants.INFO_EXCHANGES;
 import static com.coinomi.wallet.Constants.INFO_MARKETCAP;
 import static com.coinomi.wallet.Constants.INFO_SOCIAL;
 
-public class InfoFragment extends WalletFragment {
+public class InfoFragment extends WalletFragment implements TransactionEventListener<NxtTransaction> {
 
     private static final Logger log = LoggerFactory.getLogger(InfoFragment.class);
     private WalletAccount pocket;
@@ -79,6 +87,8 @@ public class InfoFragment extends WalletFragment {
     private static final int ID_RATE_LOADER = 1;
 
     private final MyHandler handler = new MyHandler(this);
+    protected final ReentrantLock lock = Threading.lock("AbstractWallet");
+    private int lastBlockSeenHeight = -1;
 
     public static InfoFragment newInstance(String accountId) {
         InfoFragment fragment = new InfoFragment();
@@ -258,5 +268,45 @@ public class InfoFragment extends WalletFragment {
     private void updateBalance(final Value newBalance) {
         currentBalance = newBalance.toCoin();
         updateView();
+    }
+
+    @Override
+    public void onNewBlock(BlockHeader header) {
+        lock.lock();
+        try {
+            lastBlockSeenHeight = header.getBlockHeight();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    @Override
+    public void onBlockUpdate(BlockHeader header) {
+
+    }
+
+    @Override
+    public void onAddressStatusUpdate(AddressStatus status) {
+
+    }
+
+    @Override
+    public void onTransactionHistory(AddressStatus status, List<ServerClient.HistoryTx> historyTxes) {
+
+    }
+
+    @Override
+    public void onTransactionUpdate(NxtTransaction transaction) {
+
+    }
+
+    @Override
+    public void onTransactionBroadcast(NxtTransaction transaction) {
+
+    }
+
+    @Override
+    public void onTransactionBroadcastError(NxtTransaction transaction) {
+
     }
 }

@@ -23,7 +23,13 @@ import java.util.Set;
  */
 public enum CoinID {
     BITCOIN_MAIN(BitcoinMain.get()),
+    LITECOIN_MAIN(LitecoinMain.get()),
     DASH_MAIN(DashMain.get()),
+    DOGECOIN_MAIN(DogecoinMain.get()),
+    PIVX_MAIN(PivxMain.get()),
+    BITCOINCASH_MAIN(BitcoinCashMain.get()),
+    BITCOINSV_MAIN(BitcoinSvMain.get()),
+    BITCOINGOLD_MAIN(BitcoinGoldMain.get()),
     BITCOINONE_MAIN(BitcoinoneMain.get()),
     BITCOINTURBOKOIN_MAIN(BitcointurbokoinMain.get()),
     DOGECOINPRIVATE_MAIN(DogecoinprivateMain.get());
