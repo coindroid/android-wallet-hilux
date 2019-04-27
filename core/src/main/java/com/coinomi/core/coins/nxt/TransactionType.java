@@ -63,7 +63,7 @@ public abstract class TransactionType {
     private static final byte SUBTYPE_ADVANCED_PAYMENT_ESCROW_CREATION = 0;
     private static final byte SUBTYPE_ADVANCED_PAYMENT_ESCROW_SIGN = 1;
     private static final byte SUBTYPE_ADVANCED_PAYMENT_ESCROW_RESULT = 2;
-    private static final byte SUBTYPE_ADVANCED_PAYMENT_SUBSCRIPTION_SUBSCRIBE = 3;
+    private static final byte SUBTYPE_ADVANCED_PAYMENT_SUBSCRIPTION_ = 3;
     private static final byte SUBTYPE_ADVANCED_PAYMENT_SUBSCRIPTION_CANCEL = 4;
     private static final byte SUBTYPE_ADVANCED_PAYMENT_SUBSCRIPTION_PAYMENT = 5;
 
