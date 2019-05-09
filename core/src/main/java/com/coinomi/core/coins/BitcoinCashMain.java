@@ -18,7 +18,7 @@ public class BitcoinCashMain extends BitFamily {
         addressPrefix = "bitcoincash";
         bip44Index = 145;
         unitExponent = 8;
-        feeValue = value(10000);
+        feeValue = value(20000);
 
         minNonDust = value(1000); // 0.00001 DASH mininput
         softDustLimit = value(5000); // 0.001 DASH

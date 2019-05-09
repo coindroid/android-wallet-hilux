@@ -8,8 +8,8 @@ android {
         applicationId "com.b_one_payment.wallet"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 69
-        versionName "v2.2"
+        versionCode 74
+        versionName "v2.5"
     }
 
     buildTypes {
@@ -72,7 +72,7 @@ dependencies {
     implementation 'com.google.guava:guava:16.0.1'
     implementation 'com.google.code.findbugs:jsr305:2.0.1'
     implementation 'com.madgag.spongycastle:core:1.51.0.0'
-    implementation 'com.google.protobuf:protobuf-java:2.5.0'
+    implementation 'com.google.protobuf:protobuf-java:3.4.0'
     implementation 'com.google.zxing:core:3.1.0'
     implementation 'ch.acra:acra:4.8.5'
     implementation 'org.slf4j:slf4j-jdk14:1.7.6'

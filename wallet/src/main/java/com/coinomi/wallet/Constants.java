@@ -118,17 +118,17 @@ public class Constants {
             new CoinAddress(DashMain.get(), new ServerAddress("drk-cce-1.coinomi.net", 5013),
                     new ServerAddress("drk-cce-2.coinomi.net", 5013)),
 
-            new CoinAddress(PivxMain.get(), new ServerAddress("pivx-1.indexer.coinomi.net", 6063),
-                    new ServerAddress("pivx-2.indexer.coinomi.net", 6063)),
+            new CoinAddress(PivxMain.get(), new ServerAddress("pivx-cce-1.coinomi.net", 5063),
+                    new ServerAddress("pivx-cce-2.coinomi.net", 5063)),
 
-            new CoinAddress(BitcoinCashMain.get(), new ServerAddress("bch-1.indexer.coinomi.net", 6090),
-                    new ServerAddress("bch-2.indexer.coinomi.net", 6090)),
+            new CoinAddress(BitcoinCashMain.get(), new ServerAddress("176.9.65.41", 5090),
+                    new ServerAddress("148.251.52.199", 5090)),
 
-            new CoinAddress(BitcoinSvMain.get(), new ServerAddress("bsv-1.indexer.coinomi.net", 6104),
-                    new ServerAddress("bsv-2.indexer.coinomi.net", 6104)),
+            new CoinAddress(BitcoinSvMain.get(), new ServerAddress("213.133.103.103", 5104),
+                    new ServerAddress("213.239.216.162", 5104)),
 
-            new CoinAddress(BitcoinGoldMain.get(), new ServerAddress("btg-1.indexer.coinomi.net", 6105),
-                    new ServerAddress("btg-2.indexer.coinomi.net", 6105)),
+            new CoinAddress(BitcoinGoldMain.get(), new ServerAddress("213.239.216.162", 5105),
+                    new ServerAddress("213.133.103.103", 5105)),
 
             new CoinAddress(BitcoinoneMain.get(), new ServerAddress("45.32.237.148", 9100),
                     new ServerAddress("45.32.237.148", 9100)),
@@ -419,9 +419,9 @@ public class Constants {
             DogecoinMain.get(),
             DashMain.get(),
             PivxMain.get(),
-            BitcoinCashMain.get(),
-            BitcoinSvMain.get(),
-            BitcoinGoldMain.get(),
+        //    BitcoinCashMain.get(),
+        //    BitcoinSvMain.get(),
+        //    BitcoinGoldMain.get(),
             BitcoinoneMain.get(),
             BitcointurbokoinMain.get(),
             DogecoinprivateMain.get()

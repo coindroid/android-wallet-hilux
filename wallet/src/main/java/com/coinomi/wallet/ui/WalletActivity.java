@@ -43,6 +43,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.annotation.Nullable;
 
 import static com.coinomi.wallet.Constants.DRAWER_LOCKED;

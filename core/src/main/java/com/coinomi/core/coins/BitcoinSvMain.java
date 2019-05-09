@@ -17,7 +17,7 @@ public class BitcoinSvMain extends BitFamily {
         addressPrefix = "bitcoinsv";
         bip44Index = 236;
         unitExponent = 8;
-        feeValue = value(10000);
+        feeValue = value(100000);
 
         minNonDust = value(1000); // 0.00001 DASH mininput
         softDustLimit = value(5000); // 0.001 DASH

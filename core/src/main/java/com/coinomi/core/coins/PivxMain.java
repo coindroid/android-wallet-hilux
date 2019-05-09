@@ -1,11 +1,11 @@
 package com.coinomi.core.coins;
 
-import com.coinomi.core.coins.families.BitFamily;
+import com.coinomi.core.coins.families.PivxFamily;
 
 /**
  * @author John L. Jegutanis
  */
-public class PivxMain extends BitFamily {
+public class PivxMain extends PivxFamily {
     private PivxMain() {
         id = "pivx.main"; // Do not change this id as wallets serialize this string
 
@@ -28,6 +28,7 @@ public class PivxMain extends BitFamily {
     }
 
     private static PivxMain instance = new PivxMain();
+
     public static synchronized CoinType get() {
         return instance;
     }

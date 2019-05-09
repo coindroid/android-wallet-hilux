@@ -12,6 +12,7 @@ public enum Families {
     BITCOIN("bitcoin"),
     NUBITS("nubits"),
     PEERCOIN("peercoin"),
+    PIVX("pivx"),
     REDDCOIN("reddcoin"),
     VPNCOIN("vpncoin"),
     CLAMS("clams"),
