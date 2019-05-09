@@ -15,7 +15,7 @@ public class DigibyteMain extends BitFamily {
         spendableCoinbaseDepth = 100;
         dumpedPrivateKeyHeader = 128;
 
-        name = "Digibyte (beta)";
+        name = "Digibyte";
         symbol = "DGB";
         uriScheme = "digibyte";
         bip44Index = 20;
