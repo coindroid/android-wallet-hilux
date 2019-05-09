@@ -32,7 +32,10 @@ public enum CoinID {
     BITCOINGOLD_MAIN(BitcoinGoldMain.get()),
     BITCOINONE_MAIN(BitcoinoneMain.get()),
     BITCOINTURBOKOIN_MAIN(BitcointurbokoinMain.get()),
-    DOGECOINPRIVATE_MAIN(DogecoinprivateMain.get());
+    DOGECOINPRIVATE_MAIN(DogecoinprivateMain.get()),
+    DIGIBYTE_MAIN(DigibyteMain.get()),
+    RAVENCOIN_MAIN(RavencoinMain.get()),
+    FEATHERCOIN_MAIN(FeathercoinMain.get());
 
     private static List<CoinType> types;
     private static HashMap<String, CoinType> idLookup = new HashMap<>();

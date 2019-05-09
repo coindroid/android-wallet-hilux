@@ -1,11 +1,11 @@
 package com.coinomi.core.coins;
 
-import org.bitcoinj.core.Coin;
+import com.coinomi.core.coins.families.BitFamily;
 
 /**
  * @author Digibyte
  */
-public class DigibyteMain extends CoinType {
+public class DigibyteMain extends BitFamily {
     private DigibyteMain() {
         id = "digibyte.main";
 
@@ -20,7 +20,7 @@ public class DigibyteMain extends CoinType {
         uriScheme = "digibyte";
         bip44Index = 20;
         unitExponent = 8;
-        feePerKb = value(10000);
+        feeValue = value(100000);
         minNonDust = value(5460);
         softDustLimit = value(100000);
         softDustPolicy = SoftDustPolicy.BASE_FEE_FOR_EACH_SOFT_DUST_TXO;
